@@ -311,10 +311,11 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        </div>
-        
-        {/* Office Locations Explanation */}
-        <div className="mt-16 text-center text-white">
+      </div>
+      
+      {/* Office Locations Explanation - Below the main grid */}
+      <div className="relative z-10 container mx-auto px-4 mt-16">
+        <div className="text-center text-white">
           <h3 className="text-2xl md:text-3xl font-bold mb-6">
             Strategically Located for 
             <span className="text-accent"> Maximum Impact</span>
@@ -345,6 +346,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
+      </div>
       
       <BookingModal 
         open={bookingModalOpen} 
