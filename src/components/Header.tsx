@@ -6,12 +6,12 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <div className="flex flex-col">
-              <h1 className="text-2xl font-bold text-primary tracking-wide">
-                KLUVO
-              </h1>
-              <div className="h-0.5 w-full bg-gradient-primary"></div>
-            </div>
+            <img 
+              src="/lovable-uploads/879c65d7-50b8-4472-8daf-a302dbc68f6f.png" 
+              alt="Kluvo Logo" 
+              className="h-10 w-10 object-contain"
+            />
+            <span className="ml-3 text-xl font-bold text-primary">KLUVO</span>
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
