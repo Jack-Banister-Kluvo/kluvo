@@ -20,7 +20,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
             Your Outbound Sales Team,
-            <span className="block text-accent font-extrabold drop-shadow-md"> Fully Managed</span>
+            <span className="block text-accent font-extrabold drop-shadow-md"> Without The Headache</span>
           </h1>
           
           <p className="text-xl md:text-2xl mb-8 text-white/95 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
