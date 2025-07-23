@@ -5,7 +5,6 @@ import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import premiumDigitalEarth from '@/assets/premium-digital-earth.jpg';
-import ultraHdEarthTexture from '@/assets/ultra-hd-earth-texture.jpg';
 
 // Coordinates for office locations
 const locations = [
@@ -180,14 +179,14 @@ function ConnectionLines() {
 
 function Globe() {
   const globeRef = useRef<THREE.Group>(null);
-  const texture = useLoader(THREE.TextureLoader, ultraHdEarthTexture);
+  const texture = useLoader(THREE.TextureLoader, premiumDigitalEarth);
   
   const earthMaterial = new THREE.MeshStandardMaterial({
     map: texture,
-    roughness: 0.7,
+    roughness: 0.9,
     metalness: 0.1,
     emissive: new THREE.Color(0x112244),
-    emissiveIntensity: 0.2,
+    emissiveIntensity: 0.15,
     transparent: false,
   });
   
@@ -212,7 +211,7 @@ function Globe() {
   return (
     <group ref={globeRef}>
       <mesh>
-        <sphereGeometry args={[1, 256, 256]} />
+        <sphereGeometry args={[1, 128, 128]} />
         <primitive object={earthMaterial} />
       </mesh>
       <ConnectionLines />
@@ -294,26 +293,20 @@ const Hero = () => {
                 </Canvas>
               </div>
               
-              {/* Floating stat cards with connecting lines */}
+              {/* Floating stat cards */}
               <div className="absolute top-8 left-4 bg-black/70 backdrop-blur-sm rounded-xl p-4 border border-accent/30 shadow-glow">
                 <div className="text-2xl md:text-3xl font-bold text-white mb-1">24/7</div>
                 <div className="text-sm text-white/80">Global Coverage</div>
-                <div className="absolute top-1/2 left-full w-16 h-0.5 bg-gradient-to-r from-accent/60 to-transparent"></div>
-                <div className="absolute top-1/2 left-full translate-x-16 w-2 h-2 bg-accent rounded-full animate-pulse"></div>
               </div>
               
               <div className="absolute top-1/2 -right-4 transform -translate-y-1/2 bg-black/70 backdrop-blur-sm rounded-xl p-4 border border-accent/30 shadow-glow">
                 <div className="text-2xl md:text-3xl font-bold text-white mb-1">95%+</div>
                 <div className="text-sm text-white/80">Meeting Show Rate</div>
-                <div className="absolute top-1/2 right-full w-16 h-0.5 bg-gradient-to-l from-accent/60 to-transparent"></div>
-                <div className="absolute top-1/2 right-full -translate-x-16 w-2 h-2 bg-accent rounded-full animate-pulse"></div>
               </div>
               
               <div className="absolute bottom-8 left-8 bg-black/70 backdrop-blur-sm rounded-xl p-4 border border-accent/30 shadow-glow">
                 <div className="text-2xl md:text-3xl font-bold text-white mb-1">3x</div>
                 <div className="text-sm text-white/80">Faster Pipeline</div>
-                <div className="absolute bottom-1/2 left-full w-16 h-0.5 bg-gradient-to-r from-accent/60 to-transparent rotate-45 origin-left"></div>
-                <div className="absolute bottom-1/2 left-full translate-x-12 translate-y-3 w-2 h-2 bg-accent rounded-full animate-pulse"></div>
               </div>
             </div>
           </div>
