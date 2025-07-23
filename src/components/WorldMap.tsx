@@ -2,7 +2,9 @@ import { useRef, useState } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
 import * as THREE from 'three';
-import premiumDigitalEarth from '@/assets/premium-digital-earth.jpg'; // Updated texture
+
+// Use a realistic Earth texture with city lights
+const earthTextureUrl = 'https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=2048&q=80';
 
 // Coordinates for office locations
 const locations = [
@@ -40,67 +42,82 @@ function latLngToVector3(lat: number, lng: number, radius: number) {
 
 function LocationPin({ position, name, color }: { position: THREE.Vector3; name: string; color: string }) {
   const meshRef = useRef<THREE.Mesh>(null);
+  const outerGlowRef = useRef<THREE.Mesh>(null);
   const [hovered, setHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
 
   useFrame((state) => {
+    const time = state.clock.getElapsedTime();
+    
     if (meshRef.current) {
       meshRef.current.scale.setScalar(hovered ? 1.2 : 1);
       meshRef.current.position.copy(position);
-      // Make pin point outward from globe center
       meshRef.current.lookAt(position.clone().multiplyScalar(2));
       
-      // Check if this side of the globe is facing the camera
+      // Pulsing animation
+      const pulseScale = 1 + 0.3 * Math.sin(time * 3);
+      const emissiveIntensity = 0.5 + 0.4 * Math.sin(time * 2);
+      (meshRef.current.material as THREE.MeshStandardMaterial).emissiveIntensity = emissiveIntensity;
+      
+      // Check visibility
       const cameraDirection = state.camera.position.clone().normalize();
       const pinDirection = position.clone().normalize();
       const dotProduct = pinDirection.dot(cameraDirection);
-      
-      // Only show label when pin is facing towards camera (dot product > 0)
       setIsVisible(dotProduct > 0);
+    }
+
+    if (outerGlowRef.current) {
+      // Animated glow effect
+      const glowPulse = 1 + 0.5 * Math.sin(time * 2 + 1);
+      outerGlowRef.current.scale.setScalar(glowPulse);
+      (outerGlowRef.current.material as THREE.MeshStandardMaterial).opacity = 
+        0.2 + 0.2 * Math.sin(time * 2);
     }
   });
 
   return (
     <group>
-      {/* Main white dot */}
+      {/* Main white dot with pulsing effect */}
       <mesh
         ref={meshRef}
         position={position}
         onPointerEnter={() => setHovered(true)}
         onPointerLeave={() => setHovered(false)}
       >
-        <sphereGeometry args={[0.04, 16, 16]} />
+        <sphereGeometry args={[0.025, 16, 16]} />
         <meshStandardMaterial 
           color="#ffffff" 
           emissive="#ffffff"
-          emissiveIntensity={hovered ? 0.6 : 0.3}
+          emissiveIntensity={0.8}
+          toneMapped={false}
         />
       </mesh>
       
-      {/* Larger glowing halo */}
+      {/* Inner glow */}
       <mesh position={position}>
+        <sphereGeometry args={[0.04, 16, 16]} />
+        <meshStandardMaterial 
+          color="#ffffff"
+          emissive="#ffffff" 
+          emissiveIntensity={0.3}
+          transparent={true}
+          opacity={0.6}
+          toneMapped={false}
+        />
+      </mesh>
+      
+      {/* Animated outer glow */}
+      <mesh ref={outerGlowRef} position={position}>
         <sphereGeometry args={[0.06, 16, 16]} />
         <meshStandardMaterial 
           color="#ffffff"
           emissive="#ffffff" 
           emissiveIntensity={0.1}
           transparent={true}
-          opacity={0.4}
+          opacity={0.3}
+          toneMapped={false}
         />
       </mesh>
-      
-      {/* Outer glow ring */}
-      <mesh position={position}>
-        <sphereGeometry args={[0.08, 16, 16]} />
-        <meshStandardMaterial 
-          color="#ffffff"
-          emissive="#ffffff" 
-          emissiveIntensity={0.05}
-          transparent={true}
-          opacity={0.2}
-        />
-      </mesh>
-      
     </group>
   );
 }
@@ -174,17 +191,27 @@ function ConnectionLines() {
 
 function Globe() {
   const globeRef = useRef<THREE.Group>(null);
-  const texture = useLoader(THREE.TextureLoader, premiumDigitalEarth);
+  const texture = useLoader(THREE.TextureLoader, earthTextureUrl);
+  
+  // Create a more realistic Earth material
+  const earthMaterial = new THREE.MeshStandardMaterial({
+    map: texture,
+    roughness: 0.8,
+    metalness: 0.1,
+    emissive: new THREE.Color(0x112244),
+    emissiveIntensity: 0.05,
+  });
+  
   
   useFrame(() => {
     if (globeRef.current) {
-      globeRef.current.rotation.y += 0.002; // Much slower rotation
+      globeRef.current.rotation.y += 0.001; // Very slow rotation
     }
   });
 
   // Create location pins
   const pins = locations.map((location, index) => {
-    const position = latLngToVector3(location.lat, location.lng, 1.02);
+    const position = latLngToVector3(location.lat, location.lng, 1.01);
     return (
       <LocationPin
         key={index}
@@ -198,14 +225,8 @@ function Globe() {
   return (
     <group ref={globeRef}>
       <mesh>
-        <sphereGeometry args={[1, 64, 64]} />
-        <meshStandardMaterial 
-          map={texture}
-          roughness={1.0}
-          metalness={0.0}
-          emissive="#001100"
-          emissiveIntensity={0.1}
-        />
+        <sphereGeometry args={[1, 128, 128]} />
+        <primitive object={earthMaterial} />
       </mesh>
       <ConnectionLines />
       {pins}
@@ -228,19 +249,31 @@ const WorldMap = () => {
         </div>
         
         <div className="relative">
-          <div className="w-full h-96 md:h-[500px] bg-black/50 rounded-2xl overflow-hidden shadow-glow border border-accent/30 backdrop-blur-sm">
-            <Canvas camera={{ position: [0, 0, 3], fov: 45 }}>
-              <ambientLight intensity={1.2} />
+          <div className="w-full h-96 md:h-[500px] bg-black rounded-2xl overflow-hidden shadow-glow border border-accent/30">
+            <Canvas camera={{ position: [0, 0, 2.5], fov: 50 }}>
+              <ambientLight intensity={0.3} />
+              <directionalLight 
+                position={[2, 2, 5]} 
+                intensity={1} 
+                color="#ffffff"
+              />
+              <pointLight 
+                position={[-2, -2, -5]} 
+                intensity={0.5} 
+                color="#4488ff"
+              />
               
               <Globe />
               
               <OrbitControls
-                enableZoom={false}
+                enableZoom={true}
                 enablePan={false}
                 autoRotate={false}
                 enableDamping={true}
                 dampingFactor={0.05}
-                rotateSpeed={0.5}
+                rotateSpeed={0.3}
+                minDistance={1.8}
+                maxDistance={4}
               />
             </Canvas>
           </div>
