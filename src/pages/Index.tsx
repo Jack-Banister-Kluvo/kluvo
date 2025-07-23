@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import Process from "@/components/Process";
 import Technology from "@/components/Technology";
-import Pricing from "@/components/Pricing";
+import WorldMap from "@/components/WorldMap";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -21,6 +21,7 @@ const Index = () => {
       <section id="technology">
         <Technology />
       </section>
+      <WorldMap />
       <Contact />
       <Footer />
     </div>
