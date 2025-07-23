@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 const Reviews = () => {
   const [currentReview, setCurrentReview] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const reviews = [
     {
@@ -106,30 +107,42 @@ const Reviews = () => {
     }
   ];
 
+  // Smooth transition function
+  const changeReview = (newIndex: number) => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentReview(newIndex);
+      setIsTransitioning(false);
+    }, 150);
+  };
+
   // Auto-play functionality
   useEffect(() => {
     if (!isAutoPlaying) return;
     
     const timer = setInterval(() => {
-      setCurrentReview((prev) => (prev + 1) % reviews.length);
+      const nextIndex = (currentReview + 1) % reviews.length;
+      changeReview(nextIndex);
     }, 4000); // Change every 4 seconds
 
     return () => clearInterval(timer);
-  }, [isAutoPlaying, reviews.length]);
+  }, [isAutoPlaying, reviews.length, currentReview]);
 
   const nextReview = () => {
     setIsAutoPlaying(false); // Stop auto-play when user interacts
-    setCurrentReview((prev) => (prev + 1) % reviews.length);
+    const nextIndex = (currentReview + 1) % reviews.length;
+    changeReview(nextIndex);
   };
 
   const prevReview = () => {
     setIsAutoPlaying(false); // Stop auto-play when user interacts
-    setCurrentReview((prev) => (prev - 1 + reviews.length) % reviews.length);
+    const prevIndex = (currentReview - 1 + reviews.length) % reviews.length;
+    changeReview(prevIndex);
   };
 
   const goToReview = (index: number) => {
     setIsAutoPlaying(false); // Stop auto-play when user interacts
-    setCurrentReview(index);
+    changeReview(index);
   };
 
   const StarRating = ({ rating }: { rating: number }) => {
@@ -173,22 +186,24 @@ const Reviews = () => {
                 <h3 className="text-2xl font-bold text-white mb-2">kluvo</h3>
               </div>
               
-              <StarRating rating={currentReviewData.rating} />
-              
-              <blockquote className="text-xl md:text-2xl text-white leading-relaxed mb-8 font-light">
-                "{currentReviewData.text}"
-              </blockquote>
-              
-              <div className="flex items-center justify-center gap-4">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl">
-                  {currentReviewData.avatar}
-                </div>
-                <div className="text-left">
-                  <div className="text-white font-semibold">
-                    {currentReviewData.author}
+              <div className={`transition-all duration-300 ${isTransitioning ? 'opacity-0 transform translate-y-4' : 'opacity-100 transform translate-y-0'}`}>
+                <StarRating rating={currentReviewData.rating} />
+                
+                <blockquote className="text-xl md:text-2xl text-white leading-relaxed mb-8 font-light">
+                  "{currentReviewData.text}"
+                </blockquote>
+                
+                <div className="flex items-center justify-center gap-4">
+                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl">
+                    {currentReviewData.avatar}
                   </div>
-                  <div className="text-white/80">
-                    {currentReviewData.title}
+                  <div className="text-left">
+                    <div className="text-white font-semibold">
+                      {currentReviewData.author}
+                    </div>
+                    <div className="text-white/80">
+                      {currentReviewData.title}
+                    </div>
                   </div>
                 </div>
               </div>
