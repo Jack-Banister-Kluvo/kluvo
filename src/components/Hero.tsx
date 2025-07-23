@@ -311,7 +311,40 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+        
+        {/* Office Locations Explanation */}
+        <div className="mt-16 text-center text-white">
+          <h3 className="text-2xl md:text-3xl font-bold mb-6">
+            Strategically Located for 
+            <span className="text-accent"> Maximum Impact</span>
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+              <h4 className="text-lg font-semibold mb-3 text-accent">Beirut, Lebanon</h4>
+              <p className="text-white/90 text-sm leading-relaxed">
+                Our Middle East operations center, perfectly positioned to serve clients across the MENA region 
+                with deep cultural understanding and local market expertise.
+              </p>
+            </div>
+            
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+              <h4 className="text-lg font-semibold mb-3 text-accent">Kuala Lumpur, Malaysia</h4>
+              <p className="text-white/90 text-sm leading-relaxed">
+                Asia-Pacific hub covering Southeast Asia, Australia, and emerging markets with native speakers 
+                and timezone advantages for seamless global coverage.
+              </p>
+            </div>
+            
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+              <h4 className="text-lg font-semibold mb-3 text-accent">Leeds, United Kingdom</h4>
+              <p className="text-white/90 text-sm leading-relaxed">
+                European headquarters managing UK, EU, and North American operations with our largest team 
+                of specialists and advanced technology infrastructure.
+              </p>
+            </div>
+          </div>
+        </div>
       
       <BookingModal 
         open={bookingModalOpen} 
