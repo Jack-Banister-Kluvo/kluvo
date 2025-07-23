@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Sphere, Html } from '@react-three/drei';
+import { OrbitControls, Html } from '@react-three/drei';
 import * as THREE from 'three';
 
 // Coordinates for office locations
@@ -67,7 +67,7 @@ function LocationPin({ position, name, color }: { position: THREE.Vector3; name:
 }
 
 function Globe() {
-  const globeRef = useRef<THREE.Mesh>(null);
+  const globeRef = useRef<THREE.Group>(null);
   
   useFrame(() => {
     if (globeRef.current) {
@@ -89,15 +89,14 @@ function Globe() {
   });
 
   return (
-    <group>
-      <mesh ref={globeRef}>
-        <Sphere args={[1, 64, 64]}>
-          <meshStandardMaterial 
-            color="#1a1a1a"
-            roughness={0.8}
-            metalness={0.1}
-          />
-        </Sphere>
+    <group ref={globeRef}>
+      <mesh>
+        <sphereGeometry args={[1, 64, 64]} />
+        <meshStandardMaterial 
+          color="#1a1a1a"
+          roughness={0.8}
+          metalness={0.1}
+        />
       </mesh>
       {pins}
     </group>
