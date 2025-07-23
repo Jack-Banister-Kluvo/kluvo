@@ -84,7 +84,7 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
             
             <div className="w-full h-[600px] border rounded-lg overflow-hidden">
               <iframe
-                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0P4kKFLRe7ZCK_qF7LZvBOG5XAZL2v0dYs6fY5rQt5CZMmm-c8GKVUYjEy9XB4nJ2B_qQB6gWs?gv=true"
+                src="https://calendar.notion.so/meet/josephkennedy/3c2aq4oh1"
                 width="100%"
                 height="100%"
                 frameBorder="0"
