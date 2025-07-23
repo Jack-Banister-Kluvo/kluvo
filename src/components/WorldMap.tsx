@@ -215,11 +215,7 @@ function Globe() {
 
 const WorldMap = () => {
   return (
-    <section className="py-20 bg-primary relative overflow-hidden">
-      {/* Digital grid background */}
-      <div className="absolute inset-0 bg-pattern-grid bg-grid opacity-20"></div>
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-background to-transparent"></div>
-      
+    <section className="py-20 bg-primary relative">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
