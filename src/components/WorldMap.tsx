@@ -35,6 +35,7 @@ function latLngToVector3(lat: number, lng: number, radius: number) {
 function LocationPin({ position, name, color }: { position: THREE.Vector3; name: string; color: string }) {
   const meshRef = useRef<THREE.Mesh>(null);
   const [hovered, setHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   useFrame((state) => {
     if (meshRef.current) {
@@ -42,6 +43,14 @@ function LocationPin({ position, name, color }: { position: THREE.Vector3; name:
       meshRef.current.position.copy(position);
       // Make pin point outward from globe center
       meshRef.current.lookAt(position.clone().multiplyScalar(2));
+      
+      // Check if this side of the globe is facing the camera
+      const cameraDirection = state.camera.position.clone().normalize();
+      const pinDirection = position.clone().normalize();
+      const dotProduct = pinDirection.dot(cameraDirection);
+      
+      // Only show label when pin is facing towards camera (dot product > 0)
+      setIsVisible(dotProduct > 0);
     }
   });
 
@@ -86,16 +95,18 @@ function LocationPin({ position, name, color }: { position: THREE.Vector3; name:
         />
       </mesh>
       
-      {/* Permanent label above the pin */}
-      <Html 
-        position={[position.x, position.y + 0.15, position.z]}
-        center
-        distanceFactor={8}
-      >
-        <div className="text-white text-sm font-semibold whitespace-nowrap text-center drop-shadow-lg">
-          {name}
-        </div>
-      </Html>
+      {/* Permanent label above the pin - only show when visible */}
+      {isVisible && (
+        <Html 
+          position={[position.x, position.y + 0.12, position.z]}
+          center
+          distanceFactor={12}
+        >
+          <div className="text-white text-xs font-medium whitespace-nowrap text-center drop-shadow-lg">
+            {name}
+          </div>
+        </Html>
+      )}
       
       {/* Hover tooltip with additional info */}
       {hovered && (
