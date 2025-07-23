@@ -2,9 +2,7 @@ import { useRef, useState } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
 import * as THREE from 'three';
-
-// Use a proper Earth texture from a reliable source
-const earthTextureUrl = 'https://images.unsplash.com/photo-1564053489984-317bbd824340?w=2048&q=80';
+import premiumDigitalEarth from '@/assets/premium-digital-earth.jpg';
 
 // Coordinates for office locations
 const locations = [
@@ -191,7 +189,7 @@ function ConnectionLines() {
 
 function Globe() {
   const globeRef = useRef<THREE.Group>(null);
-  const texture = useLoader(THREE.TextureLoader, earthTextureUrl);
+  const texture = useLoader(THREE.TextureLoader, premiumDigitalEarth);
   
   // Create a nighttime Earth material with city lights
   const earthMaterial = new THREE.MeshStandardMaterial({
