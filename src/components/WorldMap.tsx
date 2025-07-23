@@ -17,6 +17,12 @@ const locations = [
     lat: 3.139,
     lng: 101.6869,
     color: '#10B981'
+  },
+  {
+    name: 'Leeds, United Kingdom',
+    lat: 53.8008,
+    lng: -1.5491,
+    color: '#10B981'
   }
 ];
 
@@ -173,8 +179,8 @@ const WorldMap = () => {
             Global Presence, Local Expertise
           </h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto mb-8">
-            Our teams operate from modern offices in Beirut and Kuala Lumpur, 
-            delivering world-class outbound sales services with local market understanding.
+            Our sales agents operate from modern offices in Beirut and Kuala Lumpur, 
+            with company headquarters in Leeds, delivering world-class outbound sales services globally.
           </p>
         </div>
         
@@ -203,20 +209,28 @@ const WorldMap = () => {
           </div>
           
           {/* Location details */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div className="text-center p-8 bg-card rounded-xl shadow-soft">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            <div className="text-center p-6 bg-card rounded-xl shadow-soft">
               <div className="w-4 h-4 bg-accent rounded-full mx-auto mb-4"></div>
-              <h3 className="text-xl font-semibold mb-2 text-foreground">Beirut, Lebanon</h3>
-              <p className="text-muted-foreground">
-                Our Middle East hub serving European and regional markets with perfect timezone coverage.
+              <h3 className="text-lg font-semibold mb-2 text-foreground">Beirut, Lebanon</h3>
+              <p className="text-sm text-muted-foreground">
+                Sales agent hub serving European and regional markets with perfect timezone coverage.
               </p>
             </div>
             
-            <div className="text-center p-8 bg-card rounded-xl shadow-soft">
+            <div className="text-center p-6 bg-card rounded-xl shadow-soft">
               <div className="w-4 h-4 bg-accent rounded-full mx-auto mb-4"></div>
-              <h3 className="text-xl font-semibold mb-2 text-foreground">Kuala Lumpur, Malaysia</h3>
-              <p className="text-muted-foreground">
-                Our Asia-Pacific center providing comprehensive coverage for global business hours.
+              <h3 className="text-lg font-semibold mb-2 text-foreground">Kuala Lumpur, Malaysia</h3>
+              <p className="text-sm text-muted-foreground">
+                Sales agent center providing comprehensive coverage for global business hours.
+              </p>
+            </div>
+
+            <div className="text-center p-6 bg-card rounded-xl shadow-soft">
+              <div className="w-4 h-4 bg-accent rounded-full mx-auto mb-4"></div>
+              <h3 className="text-lg font-semibold mb-2 text-foreground">Leeds, United Kingdom</h3>
+              <p className="text-sm text-muted-foreground">
+                Company headquarters and operations center. No sales agents based here.
               </p>
             </div>
           </div>
