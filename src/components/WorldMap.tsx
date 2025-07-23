@@ -3,8 +3,8 @@ import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
 import * as THREE from 'three';
 
-// Use a realistic Earth texture that shows countries and continents clearly
-const earthTextureUrl = 'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=2048&q=80';
+// Use a nighttime Earth texture with city lights and clear country boundaries
+const earthTextureUrl = 'https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=2048&q=80';
 
 // Coordinates for office locations
 const locations = [
@@ -193,13 +193,14 @@ function Globe() {
   const globeRef = useRef<THREE.Group>(null);
   const texture = useLoader(THREE.TextureLoader, earthTextureUrl);
   
-  // Create a more realistic Earth material
+  // Create a nighttime Earth material with city lights
   const earthMaterial = new THREE.MeshStandardMaterial({
     map: texture,
-    roughness: 0.8,
+    roughness: 0.9,
     metalness: 0.1,
     emissive: new THREE.Color(0x112244),
-    emissiveIntensity: 0.05,
+    emissiveIntensity: 0.15,
+    transparent: false,
   });
   
   
@@ -251,15 +252,15 @@ const WorldMap = () => {
         <div className="relative">
           <div className="w-full h-96 md:h-[500px] bg-black rounded-2xl overflow-hidden shadow-glow border border-accent/30">
             <Canvas camera={{ position: [0, 0, 2.5], fov: 50 }}>
-              <ambientLight intensity={0.3} />
+              <ambientLight intensity={0.2} />
               <directionalLight 
                 position={[2, 2, 5]} 
-                intensity={1} 
+                intensity={0.6} 
                 color="#ffffff"
               />
               <pointLight 
                 position={[-2, -2, -5]} 
-                intensity={0.5} 
+                intensity={0.4} 
                 color="#4488ff"
               />
               
