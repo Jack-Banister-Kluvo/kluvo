@@ -294,7 +294,7 @@ const Hero = () => {
               </div>
               
               {/* Floating stat cards - positioned closer to globe */}
-              <div className="absolute top-16 left-16 bg-black/70 backdrop-blur-sm rounded-xl p-4 border border-accent/30 shadow-glow">
+              <div className="absolute top-16 left-24 bg-black/70 backdrop-blur-sm rounded-xl p-4 border border-accent/30 shadow-glow">
                 <div className="text-2xl md:text-3xl font-bold text-white mb-1">24/7</div>
                 <div className="text-sm text-white/80">Global Coverage</div>
               </div>
@@ -304,7 +304,7 @@ const Hero = () => {
                 <div className="text-sm text-white/80">Meeting Show Rate</div>
               </div>
               
-              <div className="absolute bottom-16 left-20 bg-black/70 backdrop-blur-sm rounded-xl p-4 border border-accent/30 shadow-glow">
+              <div className="absolute bottom-16 left-28 bg-black/70 backdrop-blur-sm rounded-xl p-4 border border-accent/30 shadow-glow">
                 <div className="text-2xl md:text-3xl font-bold text-white mb-1">3x</div>
                 <div className="text-sm text-white/80">Faster Pipeline</div>
               </div>
