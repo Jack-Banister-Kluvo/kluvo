@@ -18,14 +18,14 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
             Your Outbound Sales Team,
-            <span className="block text-accent"> Fully Managed</span>
+            <span className="block text-accent font-extrabold drop-shadow-md"> Fully Managed</span>
           </h1>
           
-          <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl mb-8 text-white/95 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
             We plug a complete, fully-managed outbound sales desk into your business. 
-            <span className="block mt-2 font-semibold text-accent">No hiring, training, or supervision required—just results.</span>
+            <span className="block mt-2 font-semibold text-accent drop-shadow-sm">No hiring, training, or supervision required—just results.</span>
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
