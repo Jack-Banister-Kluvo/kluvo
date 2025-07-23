@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
 import * as THREE from 'three';
-import premiumDigitalEarth from '@/assets/premium-digital-earth.jpg';
+import premiumDigitalEarth from '@/assets/premium-digital-earth.jpg'; // Updated texture
 
 // Coordinates for office locations
 const locations = [
