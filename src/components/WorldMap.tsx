@@ -47,31 +47,48 @@ function LocationPin({ position, name, color }: { position: THREE.Vector3; name:
 
   return (
     <group>
+      {/* Main white dot */}
       <mesh
         ref={meshRef}
         position={position}
         onPointerEnter={() => setHovered(true)}
         onPointerLeave={() => setHovered(false)}
       >
-        <coneGeometry args={[0.03, 0.15, 8]} />
+        <sphereGeometry args={[0.04, 16, 16]} />
         <meshStandardMaterial 
-          color="#00ff41" 
-          emissive="#00ff41"
-          emissiveIntensity={hovered ? 0.8 : 0.4}
+          color="#ffffff" 
+          emissive="#ffffff"
+          emissiveIntensity={hovered ? 0.6 : 0.3}
         />
       </mesh>
-      {/* Glowing base for pin */}
+      
+      {/* Larger glowing halo */}
       <mesh position={position}>
-        <sphereGeometry args={[0.02, 8, 8]} />
+        <sphereGeometry args={[0.06, 16, 16]} />
         <meshStandardMaterial 
-          color="#00ff41"
-          emissive="#00ff41" 
-          emissiveIntensity={0.6}
+          color="#ffffff"
+          emissive="#ffffff" 
+          emissiveIntensity={0.1}
+          transparent={true}
+          opacity={0.4}
         />
       </mesh>
+      
+      {/* Outer glow ring */}
+      <mesh position={position}>
+        <sphereGeometry args={[0.08, 16, 16]} />
+        <meshStandardMaterial 
+          color="#ffffff"
+          emissive="#ffffff" 
+          emissiveIntensity={0.05}
+          transparent={true}
+          opacity={0.2}
+        />
+      </mesh>
+      
       {hovered && (
         <Html position={position}>
-          <div className="bg-primary px-4 py-2 rounded-lg shadow-glow border border-accent text-sm font-medium text-white whitespace-nowrap">
+          <div className="bg-black/80 px-4 py-2 rounded-lg shadow-lg border border-white/20 text-sm font-medium text-white whitespace-nowrap backdrop-blur-sm">
             {name}
           </div>
         </Html>
@@ -86,7 +103,7 @@ function Globe() {
   
   useFrame(() => {
     if (globeRef.current) {
-      globeRef.current.rotation.y += 0.005; // Slow rotation
+      globeRef.current.rotation.y += 0.002; // Much slower rotation
     }
   });
 
