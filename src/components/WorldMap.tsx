@@ -270,7 +270,6 @@ const WorldMap = () => {
                 enableDamping={true}
                 dampingFactor={0.05}
                 rotateSpeed={0.4}
-                target={[0, 0, 0]}
               />
             </Canvas>
           </div>
