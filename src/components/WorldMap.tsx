@@ -101,27 +101,6 @@ function LocationPin({ position, name, color }: { position: THREE.Vector3; name:
         />
       </mesh>
       
-      {/* Permanent label above the pin - only show when visible */}
-      {isVisible && (
-        <Html 
-          position={[position.x, position.y + 0.12, position.z]}
-          center
-          distanceFactor={12}
-        >
-          <div className="text-white text-xs font-medium whitespace-nowrap text-center drop-shadow-lg">
-            {name}
-          </div>
-        </Html>
-      )}
-      
-      {/* Hover tooltip with additional info */}
-      {hovered && (
-        <Html position={[position.x, position.y - 0.15, position.z]} center>
-          <div className="bg-black/80 px-3 py-1 rounded-lg shadow-lg border border-white/20 text-xs text-white whitespace-nowrap backdrop-blur-sm">
-            Office Location
-          </div>
-        </Html>
-      )}
     </group>
   );
 }
