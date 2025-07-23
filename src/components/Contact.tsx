@@ -31,67 +31,30 @@ const Contact = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             Ready to Scale Your Outbound?
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Get in touch to discuss how Kluvo can transform your sales process. 
-            We'll show you exactly how we can integrate with your existing workflow.
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            Book a call to discuss how Kluvo can transform your sales process. 
+            We'll show you exactly how we integrate with your existing workflow and deliver qualified meetings.
           </p>
+          
+          <Button variant="cta" size="xl" className="mb-8" asChild>
+            <a href="https://calendar.notion.so/meet/josephkennedy/3c2aq4oh1" target="_blank" rel="noopener noreferrer">
+              Book Your Call Now
+            </a>
+          </Button>
         </div>
         
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto text-center">
           <Card className="border-0 shadow-elegant">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl">
-                Start Your Outbound Transformation
-              </CardTitle>
-            </CardHeader>
-            
-            <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="John" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Smith" required />
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="john@company.com" required />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="company">Company</Label>
-                  <Input id="company" placeholder="Your Company" required />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="message">Tell us about your outbound goals</Label>
-                  <Textarea 
-                    id="message" 
-                    placeholder="What challenges are you facing with outbound sales? What results are you looking to achieve?"
-                    className="min-h-32"
-                    required
-                  />
-                </div>
-                
-                <Button 
-                  type="submit" 
-                  variant="cta" 
-                  size="xl" 
-                  className="w-full"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "Sending..." : "Get Started"}
-                </Button>
-                
-                <p className="text-center text-sm text-muted-foreground">
-                  We'll respond within 24 hours with a custom proposal
-                </p>
-              </form>
+            <CardContent className="p-12">
+              <h3 className="text-2xl font-semibold mb-6 text-foreground">
+                Questions? We're here to help.
+              </h3>
+              <p className="text-lg text-muted-foreground mb-8">
+                Prefer to email? Reach us at <a href="mailto:hello@kluvo.com" className="text-primary font-semibold hover:underline">hello@kluvo.com</a>
+              </p>
+              <p className="text-muted-foreground">
+                We typically respond within 24 hours with answers to your questions and next steps.
+              </p>
             </CardContent>
           </Card>
         </div>
