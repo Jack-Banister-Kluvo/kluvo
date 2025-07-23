@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import BookingModal from "./BookingModal";
 import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
+  const [bookingModalOpen, setBookingModalOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
       {/* Textured Background Elements */}
@@ -25,10 +29,13 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button variant="hero" size="xl" className="min-w-48" asChild>
-              <a href="https://calendar.notion.so/meet/josephkennedy/3c2aq4oh1" target="_blank" rel="noopener noreferrer">
-                Book a Call
-              </a>
+            <Button 
+              variant="hero" 
+              size="xl" 
+              className="min-w-48"
+              onClick={() => setBookingModalOpen(true)}
+            >
+              Book a Call
             </Button>
             <Button variant="outline" size="xl" className="min-w-48 bg-white/10 border-white/30 text-white hover:bg-white/20" asChild>
               <a href="#features">
@@ -38,6 +45,12 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      
+      
+      <BookingModal 
+        open={bookingModalOpen} 
+        onOpenChange={setBookingModalOpen} 
+      />
     </section>
   );
 };
