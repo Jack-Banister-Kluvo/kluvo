@@ -105,6 +105,73 @@ function LocationPin({ position, name, color }: { position: THREE.Vector3; name:
   );
 }
 
+// Function to create curved path between two points on sphere
+function createCurvedPath(start: THREE.Vector3, end: THREE.Vector3, segments: number = 50) {
+  const points = [];
+  for (let i = 0; i <= segments; i++) {
+    const t = i / segments;
+    // Interpolate between start and end points
+    const point = start.clone().lerp(end, t);
+    // Project back to sphere surface and add slight elevation
+    point.normalize().multiplyScalar(1.05);
+    points.push(point);
+  }
+  return points;
+}
+
+function ConnectionLines() {
+  const lineRefs = useRef<THREE.Line[]>([]);
+  const materialRefs = useRef<THREE.LineBasicMaterial[]>([]);
+  
+  // Get positions for all locations
+  const positions = locations.map(location => 
+    latLngToVector3(location.lat, location.lng, 1.05)
+  );
+  
+  // Create connections between all points
+  const connections = [
+    { start: positions[0], end: positions[1] }, // Beirut to KL
+    { start: positions[1], end: positions[2] }, // KL to Leeds  
+    { start: positions[2], end: positions[0] }  // Leeds to Beirut
+  ];
+  
+  useFrame((state) => {
+    const time = state.clock.getElapsedTime();
+    
+    materialRefs.current.forEach((material, index) => {
+      if (material) {
+        // Animate opacity with offset for each line
+        const phase = time * 2 + index * (Math.PI * 2 / 3);
+        material.opacity = 0.3 + 0.4 * Math.sin(phase);
+      }
+    });
+  });
+  
+  return (
+    <group>
+      {connections.map((connection, index) => {
+        const points = createCurvedPath(connection.start, connection.end);
+        const geometry = new THREE.BufferGeometry().setFromPoints(points);
+        
+        return (
+          <primitive key={index} object={new THREE.Line(geometry, new THREE.LineBasicMaterial({
+            color: "#00ff41",
+            transparent: true,
+            opacity: 0.5,
+          }))} 
+          ref={(ref) => {
+            if (ref) {
+              lineRefs.current[index] = ref;
+              materialRefs.current[index] = ref.material;
+            }
+          }}
+          />
+        );
+      })}
+    </group>
+  );
+}
+
 function Globe() {
   const globeRef = useRef<THREE.Group>(null);
   const texture = useLoader(THREE.TextureLoader, premiumDigitalEarth);
@@ -140,6 +207,7 @@ function Globe() {
           emissiveIntensity={0.2}
         />
       </mesh>
+      <ConnectionLines />
       {pins}
     </group>
   );
