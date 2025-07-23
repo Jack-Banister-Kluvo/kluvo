@@ -201,10 +201,10 @@ function Globe() {
         <sphereGeometry args={[1, 64, 64]} />
         <meshStandardMaterial 
           map={texture}
-          roughness={0.3}
-          metalness={0.8}
+          roughness={1.0}
+          metalness={0.0}
           emissive="#001100"
-          emissiveIntensity={0.2}
+          emissiveIntensity={0.1}
         />
       </mesh>
       <ConnectionLines />
@@ -234,13 +234,7 @@ const WorldMap = () => {
         <div className="relative">
           <div className="w-full h-96 md:h-[500px] bg-black/50 rounded-2xl overflow-hidden shadow-glow border border-accent/30 backdrop-blur-sm">
             <Canvas camera={{ position: [0, 0, 3], fov: 45 }}>
-              <ambientLight intensity={0.3} />
-              <directionalLight 
-                position={[5, 5, 5]} 
-                intensity={1}
-                castShadow
-              />
-              <pointLight position={[-5, -5, -5]} intensity={0.5} />
+              <ambientLight intensity={1.2} />
               
               <Globe />
               
