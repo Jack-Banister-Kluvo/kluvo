@@ -29,7 +29,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4 text-lg">Contact</h4>
             <ul className="space-y-2 text-primary-foreground/80">
-              <li>hello@kluvo.com</li>
+              <li>support@kluvo.co.uk</li>
               <li>Support available 24/7</li>
               <li>Response within 24h</li>
             </ul>
