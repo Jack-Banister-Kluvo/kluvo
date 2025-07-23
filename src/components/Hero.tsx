@@ -265,31 +265,33 @@ const Hero = () => {
 
           {/* Right side - Globe with floating stats */}
           <div className="relative">
-            <div className="w-full h-96 md:h-[500px] relative">
-              <Canvas camera={{ position: [0, 0, 2.2], fov: 45 }}>
-                <ambientLight intensity={0.2} />
-                <directionalLight 
-                  position={[2, 2, 5]} 
-                  intensity={0.6} 
-                  color="#ffffff"
-                />
-                <pointLight 
-                  position={[-2, -2, -5]} 
-                  intensity={0.4} 
-                  color="#4488ff"
-                />
-                
-                <Globe />
-                
-                <OrbitControls
-                  enableZoom={false}
-                  enablePan={false}
-                  autoRotate={false}
-                  enableDamping={true}
-                  dampingFactor={0.05}
-                  rotateSpeed={0.3}
-                />
-              </Canvas>
+            <div className="w-full h-96 md:h-[500px] relative flex items-center justify-center">
+              <div className="w-80 h-80 md:w-96 md:h-96">
+                <Canvas camera={{ position: [0, 0, 2.8], fov: 50 }}>
+                  <ambientLight intensity={0.2} />
+                  <directionalLight 
+                    position={[2, 2, 5]} 
+                    intensity={0.6} 
+                    color="#ffffff"
+                  />
+                  <pointLight 
+                    position={[-2, -2, -5]} 
+                    intensity={0.4} 
+                    color="#4488ff"
+                  />
+                  
+                  <Globe />
+                  
+                  <OrbitControls
+                    enableZoom={false}
+                    enablePan={false}
+                    autoRotate={false}
+                    enableDamping={true}
+                    dampingFactor={0.05}
+                    rotateSpeed={0.3}
+                  />
+                </Canvas>
+              </div>
               
               {/* Floating stat cards */}
               <div className="absolute top-8 left-4 bg-black/70 backdrop-blur-sm rounded-xl p-4 border border-accent/30 shadow-glow">
