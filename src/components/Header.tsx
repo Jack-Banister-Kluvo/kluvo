@@ -6,7 +6,12 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-primary">Kluvo</h1>
+            <div className="flex flex-col">
+              <h1 className="text-2xl font-bold text-primary tracking-wide">
+                KLUVO
+              </h1>
+              <div className="h-0.5 w-full bg-gradient-primary"></div>
+            </div>
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
