@@ -3,16 +3,7 @@ import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={heroImage} 
-          alt="Professional sales team" 
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-primary/80"></div>
-      </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary">
       
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
@@ -34,21 +25,6 @@ const Hero = () => {
             <Button variant="outline" size="xl" className="min-w-48 bg-white/10 border-white/30 text-white hover:bg-white/20">
               Learn More
             </Button>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="p-6">
-              <div className="text-4xl font-bold text-accent mb-2">As low as £14</div>
-              <div className="text-lg text-white/80">per hour</div>
-            </div>
-            <div className="p-6">
-              <div className="text-4xl font-bold text-accent mb-2">120</div>
-              <div className="text-lg text-white/80">conversations per day</div>
-            </div>
-            <div className="p-6">
-              <div className="text-4xl font-bold text-accent mb-2">100%</div>
-              <div className="text-lg text-white/80">qualified meetings</div>
-            </div>
           </div>
         </div>
       </div>
