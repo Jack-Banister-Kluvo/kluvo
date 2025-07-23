@@ -5,28 +5,38 @@ const Process = () => {
   const steps = [
     {
       step: "01",
-      title: "Research & Data Enrichment",
-      description: "Our research team enriches each record with direct dials and loads everything into our predictive dialer system."
+      title: "Initial Consultation & Agent Introduction",
+      description: "We start with a comprehensive consultation to understand your business needs, then introduce you to your dedicated sales agents via video call. You'll meet the team, discuss your product, and ensure perfect alignment before any commitments."
     },
     {
       step: "02", 
-      title: "Intelligent Dialing",
-      description: "Predictive dialing technology only connects when a human answers—no wasted time on voicemails or busy signals."
+      title: "Trial Period & Strategy Development",
+      description: "Your assigned agents work with you to develop the perfect script and approach. We conduct test calls and refine the messaging until you're completely satisfied with the quality and tone."
     },
     {
       step: "03",
-      title: "Tested Cadences",
-      description: "10 calls across 30 days for cold leads, tighter schedules for warm replies, and different flows for no-shows."
+      title: "Security Deposit & Onboarding",
+      description: "Once you're happy with your agents, we require a security deposit equivalent to one month's worth of hours upfront. This covers initial setup costs and ensures commitment from both sides before we begin full operations."
     },
     {
       step: "04",
-      title: "Quality Control",
-      description: "Every booking is reviewed for budget, authority, and need before it hits your calendar. Non-qualified meetings are cancelled immediately."
+      title: "Data Enrichment & Intelligent Dialing",
+      description: "Our research team enriches each record with direct dials and loads everything into our predictive dialer. The system only connects when a human answers—no wasted time on voicemails or busy signals."
     },
     {
       step: "05",
-      title: "Complete Visibility",
-      description: "Private Slack channel with call clips, highlights, and weekly reports showing all metrics and outcomes."
+      title: "Tested Cadences & Follow-up",
+      description: "We implement proven call sequences: 10 calls across 30 days for cold leads, tighter schedules for warm replies, and different flows for no-shows. Every prospect is systematically followed up until they convert or are marked as dead."
+    },
+    {
+      step: "06",
+      title: "Quality Control & Meeting Verification",
+      description: "Every booking is reviewed for budget, authority, and need before it hits your calendar. Non-qualified meetings are cancelled immediately and prospects are called back for clarification."
+    },
+    {
+      step: "07",
+      title: "Complete Visibility & Reporting",
+      description: "Private Slack channel with call clips, highlights, and weekly reports showing all metrics and outcomes. Your named team leader stays active to make real-time adjustments."
     }
   ];
 
