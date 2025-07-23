@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
 import * as THREE from 'three';
-import digitalEarthTexture from '@/assets/digital-earth-texture.jpg';
+import premiumDigitalEarth from '@/assets/premium-digital-earth.jpg';
 
 // Coordinates for office locations
 const locations = [
@@ -107,7 +107,7 @@ function LocationPin({ position, name, color }: { position: THREE.Vector3; name:
 
 function Globe() {
   const globeRef = useRef<THREE.Group>(null);
-  const texture = useLoader(THREE.TextureLoader, digitalEarthTexture);
+  const texture = useLoader(THREE.TextureLoader, premiumDigitalEarth);
   
   useFrame(() => {
     if (globeRef.current) {
