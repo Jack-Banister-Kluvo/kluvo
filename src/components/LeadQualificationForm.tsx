@@ -220,11 +220,13 @@ const LeadQualificationForm = ({ onSubmit }: LeadQualificationFormProps) => {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
-                      <SelectItem value="10k-25k">$10,000 - $25,000</SelectItem>
-                      <SelectItem value="25k-50k">$25,000 - $50,000</SelectItem>
-                      <SelectItem value="50k-100k">$50,000 - $100,000</SelectItem>
-                      <SelectItem value="100k+">$100,000+</SelectItem>
+                      <SelectItem value="1k-3k">$1,000 - $3,000</SelectItem>
+                      <SelectItem value="3k-5k">$3,000 - $5,000</SelectItem>
+                      <SelectItem value="5k-8k">$5,000 - $8,000</SelectItem>
+                      <SelectItem value="8k-12k">$8,000 - $12,000</SelectItem>
+                      <SelectItem value="12k-15k">$12,000 - $15,000</SelectItem>
+                      <SelectItem value="15k-20k">$15,000 - $20,000</SelectItem>
+                      <SelectItem value="20k+">$20,000+</SelectItem>
                       <SelectItem value="discuss">Prefer to discuss</SelectItem>
                     </SelectContent>
                   </Select>
