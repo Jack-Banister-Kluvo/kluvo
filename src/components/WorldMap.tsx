@@ -203,9 +203,8 @@ function Globe() {
   
   
   useFrame(() => {
-    if (globeRef.current) {
-      globeRef.current.rotation.y += 0.001; // Very slow rotation
-    }
+    // Remove auto-rotation, keep it fixed unless manually rotated
+    // Globe will only rotate when user interacts with it
   });
 
   // Create location pins
@@ -249,7 +248,7 @@ const WorldMap = () => {
         
         <div className="relative">
           <div className="w-full h-96 md:h-[500px] bg-black rounded-2xl overflow-hidden shadow-glow border border-accent/30">
-            <Canvas camera={{ position: [0, 0, 2.5], fov: 50 }}>
+            <Canvas camera={{ position: [0, 0, 2.2], fov: 45 }}>
               <ambientLight intensity={0.2} />
               <directionalLight 
                 position={[2, 2, 5]} 
@@ -265,14 +264,13 @@ const WorldMap = () => {
               <Globe />
               
               <OrbitControls
-                enableZoom={true}
+                enableZoom={false}
                 enablePan={false}
                 autoRotate={false}
                 enableDamping={true}
                 dampingFactor={0.05}
-                rotateSpeed={0.3}
-                minDistance={1.8}
-                maxDistance={4}
+                rotateSpeed={0.4}
+                target={[0, 0, 0]}
               />
             </Canvas>
           </div>
