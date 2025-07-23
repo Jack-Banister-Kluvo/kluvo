@@ -3,7 +3,13 @@ import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
+      {/* Textured Background Elements */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-pattern-dots bg-dots opacity-30"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/20 rounded-full blur-2xl"></div>
+      </div>
       
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">

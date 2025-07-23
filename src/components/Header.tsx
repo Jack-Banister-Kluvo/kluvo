@@ -24,10 +24,7 @@ const Header = () => {
             </a>
           </nav>
           
-          <div className="flex items-center space-x-4">
-            <Button variant="outline" size="sm">
-              Login
-            </Button>
+          <div className="flex items-center">
             <Button variant="default" size="sm" asChild>
               <a href="https://calendar.notion.so/meet/josephkennedy/3c2aq4oh1" target="_blank" rel="noopener noreferrer">
                 Book a Call

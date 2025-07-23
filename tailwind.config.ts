@@ -70,11 +70,19 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
-				'gradient-subtle': 'var(--gradient-subtle)'
+				'gradient-subtle': 'var(--gradient-subtle)',
+				'gradient-hero': 'var(--gradient-hero)',
+				'pattern-dots': 'var(--pattern-dots)',
+				'pattern-grid': 'var(--pattern-grid)'
+			},
+			backgroundSize: {
+				'dots': '20px 20px',
+				'grid': '50px 50px'
 			},
 			boxShadow: {
 				'elegant': 'var(--shadow-elegant)',
-				'soft': 'var(--shadow-soft)'
+				'soft': 'var(--shadow-soft)',
+				'glow': 'var(--shadow-glow)'
 			},
 			transitionTimingFunction: {
 				'smooth': 'var(--transition-smooth)'

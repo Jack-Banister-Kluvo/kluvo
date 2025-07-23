@@ -25,8 +25,13 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-background relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-pattern-dots bg-dots opacity-10"></div>
+      <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-2xl"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             Ready to Scale Your Outbound?

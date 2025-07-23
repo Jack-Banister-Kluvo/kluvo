@@ -31,8 +31,12 @@ const Process = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-background relative">
+      {/* Decorative elements */}
+      <div className="absolute top-20 left-10 w-32 h-32 bg-accent/5 rounded-full blur-xl"></div>
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-primary/5 rounded-full blur-2xl"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             Our Proven Process
@@ -48,13 +52,15 @@ const Process = () => {
               <div className="flex-shrink-0 mr-8">
                 <Badge 
                   variant="outline" 
-                  className="w-16 h-16 rounded-full border-2 border-primary text-primary font-bold text-lg flex items-center justify-center bg-white"
+                  className="w-16 h-16 rounded-full border-2 border-primary text-primary font-bold text-lg flex items-center justify-center bg-white shadow-glow hover:shadow-elegant transition-all duration-300"
                 >
                   {step.step}
                 </Badge>
               </div>
-              <Card className="flex-1 border-0 shadow-soft">
-                <CardContent className="p-8">
+              <Card className="flex-1 border-0 shadow-soft hover:shadow-glow transition-all duration-500 transform hover:-translate-y-1 bg-white/95 backdrop-blur-sm">
+                <CardContent className="p-8 relative overflow-hidden">
+                  {/* Decorative accent */}
+                  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-primary"></div>
                   <h3 className="text-2xl font-semibold mb-4 text-foreground">
                     {step.title}
                   </h3>

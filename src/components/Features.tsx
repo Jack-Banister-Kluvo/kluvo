@@ -26,8 +26,11 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-subtle">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-subtle relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-pattern-grid bg-grid opacity-20"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             Why Choose Kluvo?
@@ -39,9 +42,11 @@ const Features = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
-            <Card key={index} className="border-0 shadow-soft hover:shadow-elegant transition-all duration-300 transform hover:-translate-y-2">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
+            <Card key={index} className="border-0 shadow-soft hover:shadow-glow transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 bg-white/95 backdrop-blur-sm">
+              <CardContent className="p-8 text-center relative overflow-hidden">
+                {/* Decorative element */}
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-primary opacity-10 rounded-full -mr-10 -mt-10"></div>
+                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6 shadow-glow">
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold mb-4 text-foreground">
