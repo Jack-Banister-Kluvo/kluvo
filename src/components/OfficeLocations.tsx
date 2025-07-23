@@ -6,22 +6,19 @@ const OfficeLocations = () => {
       city: "Beirut",
       country: "Lebanon",
       timezone: "GMT+3",
-      team: "12 specialists",
       description: "Our Middle East hub focusing on regional markets and Arabic-speaking clients"
     },
     {
       city: "Kuala Lumpur", 
       country: "Malaysia",
       timezone: "GMT+8",
-      team: "18 specialists", 
       description: "Asia-Pacific operations center serving clients across Southeast Asia and Australia"
     },
     {
       city: "Leeds",
       country: "United Kingdom", 
       timezone: "GMT+0",
-      team: "25 specialists",
-      description: "European headquarters managing UK, EU, and North American client operations"
+      description: "Operations headquarters managing technology infrastructure, quality assurance, and client support"
     }
   ];
 
@@ -56,11 +53,6 @@ const OfficeLocations = () => {
                 <div className="flex items-center gap-2 text-sm">
                   <Clock className="w-4 h-4 text-muted-foreground" />
                   <span className="text-muted-foreground">Timezone: {office.timezone}</span>
-                </div>
-                
-                <div className="flex items-center gap-2 text-sm">
-                  <Users className="w-4 h-4 text-muted-foreground" />
-                  <span className="text-muted-foreground">{office.team}</span>
                 </div>
               </div>
 
