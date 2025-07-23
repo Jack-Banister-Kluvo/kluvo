@@ -181,7 +181,7 @@ const Reviews = () => {
         
         <div className="max-w-4xl mx-auto">
           <Card className="border-0 bg-white/10 backdrop-blur-sm shadow-elegant">
-            <CardContent className="p-12 text-center">
+            <CardContent className="p-12 text-center h-96 flex flex-col justify-center">
               <div className="mb-8">
                 <h3 className="text-2xl font-bold text-white mb-2">kluvo</h3>
               </div>
