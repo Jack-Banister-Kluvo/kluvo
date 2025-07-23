@@ -86,10 +86,22 @@ function LocationPin({ position, name, color }: { position: THREE.Vector3; name:
         />
       </mesh>
       
+      {/* Permanent label above the pin */}
+      <Html 
+        position={[position.x, position.y + 0.15, position.z]}
+        center
+        distanceFactor={8}
+      >
+        <div className="text-white text-sm font-semibold whitespace-nowrap text-center drop-shadow-lg">
+          {name}
+        </div>
+      </Html>
+      
+      {/* Hover tooltip with additional info */}
       {hovered && (
-        <Html position={position}>
-          <div className="bg-black/80 px-4 py-2 rounded-lg shadow-lg border border-white/20 text-sm font-medium text-white whitespace-nowrap backdrop-blur-sm">
-            {name}
+        <Html position={[position.x, position.y - 0.15, position.z]} center>
+          <div className="bg-black/80 px-3 py-1 rounded-lg shadow-lg border border-white/20 text-xs text-white whitespace-nowrap backdrop-blur-sm">
+            Office Location
           </div>
         </Html>
       )}
