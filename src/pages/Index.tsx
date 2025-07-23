@@ -4,6 +4,7 @@ import Features from "@/components/Features";
 import Process from "@/components/Process";
 import Technology from "@/components/Technology";
 import WorldMap from "@/components/WorldMap";
+import Reviews from "@/components/Reviews";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -22,6 +23,7 @@ const Index = () => {
       <section id="technology">
         <Technology />
       </section>
+      <Reviews />
       <Contact />
       <Footer />
     </div>
