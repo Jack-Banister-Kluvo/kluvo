@@ -5,10 +5,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import BookingModal from "./BookingModal";
 
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [bookingModalOpen, setBookingModalOpen] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,10 +43,13 @@ const Contact = () => {
             We'll show you exactly how we integrate with your existing workflow and deliver qualified meetings.
           </p>
           
-          <Button variant="cta" size="xl" className="mb-8" asChild>
-            <a href="https://calendar.notion.so/meet/josephkennedy/3c2aq4oh1" target="_blank" rel="noopener noreferrer">
-              Book Your Call Now
-            </a>
+          <Button 
+            variant="cta" 
+            size="xl" 
+            className="mb-8"
+            onClick={() => setBookingModalOpen(true)}
+          >
+            Book Your Call Now
           </Button>
         </div>
         
@@ -64,6 +69,11 @@ const Contact = () => {
           </Card>
         </div>
       </div>
+      
+      <BookingModal 
+        open={bookingModalOpen} 
+        onOpenChange={setBookingModalOpen} 
+      />
     </section>
   );
 };
