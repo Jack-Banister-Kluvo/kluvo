@@ -6,13 +6,13 @@ const OfficeLocations = () => {
       city: "Beirut",
       country: "Lebanon",
       timezone: "GMT+3",
-      description: "Our Middle East hub focusing on regional markets and Arabic-speaking clients"
+      description: "Our Middle East hub serving regional markets, Arabic-speaking clients, plus UK and US operations"
     },
     {
       city: "Kuala Lumpur", 
       country: "Malaysia",
       timezone: "GMT+8",
-      description: "Asia-Pacific operations center serving clients across Southeast Asia and Australia"
+      description: "Asia-Pacific center serving Southeast Asia, Australia, UK and US clients with native language support"
     },
     {
       city: "Leeds",
