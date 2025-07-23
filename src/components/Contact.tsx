@@ -55,7 +55,7 @@ const Contact = () => {
                 Questions? We're here to help.
               </h3>
               <p className="text-lg text-muted-foreground mb-8">
-                Prefer to email? Reach us at <a href="mailto:hello@kluvo.com" className="text-primary font-semibold hover:underline">hello@kluvo.com</a>
+                Prefer to email? Reach us at <a href="mailto:support@kluvo.co.uk" className="text-primary font-semibold hover:underline">support@kluvo.co.uk</a>
               </p>
               <p className="text-muted-foreground">
                 We typically respond within 24 hours with answers to your questions and next steps.
