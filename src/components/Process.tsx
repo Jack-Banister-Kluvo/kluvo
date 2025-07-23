@@ -10,8 +10,8 @@ const Process = () => {
     },
     {
       step: "02", 
-      title: "Trial Period & Strategy Development",
-      description: "Your assigned agents work with you to develop the perfect script and approach. We conduct test calls and refine the messaging until you're completely satisfied with the quality and tone."
+      title: "Agent Selection & Agreement",
+      description: "After meeting your assigned agents, you decide on your preferred team. We then send you an invoice and service agreement. Following your client handoff call, your agents will be fully operational within 5 working days."
     },
     {
       step: "03",
@@ -20,8 +20,8 @@ const Process = () => {
     },
     {
       step: "04",
-      title: "Data Enrichment & Intelligent Dialing",
-      description: "Our research team enriches each record with direct dials and loads everything into our predictive dialer. The system only connects when a human answers—no wasted time on voicemails or busy signals."
+      title: "Intelligent Dialing System",
+      description: "Our predictive dialing system only connects when a human answers—no wasted time on voicemails or busy signals, ensuring maximum efficiency for your dedicated agents."
     },
     {
       step: "05",
