@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
 import * as THREE from 'three';
+import earthTexture from '@/assets/earth-texture.jpg';
 
 // Coordinates for office locations
 const locations = [
@@ -68,6 +69,7 @@ function LocationPin({ position, name, color }: { position: THREE.Vector3; name:
 
 function Globe() {
   const globeRef = useRef<THREE.Group>(null);
+  const texture = useLoader(THREE.TextureLoader, earthTexture);
   
   useFrame(() => {
     if (globeRef.current) {
@@ -93,7 +95,7 @@ function Globe() {
       <mesh>
         <sphereGeometry args={[1, 64, 64]} />
         <meshStandardMaterial 
-          color="#1a1a1a"
+          map={texture}
           roughness={0.8}
           metalness={0.1}
         />
