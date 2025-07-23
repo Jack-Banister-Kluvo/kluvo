@@ -3,8 +3,8 @@ import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
 import * as THREE from 'three';
 
-// Use a nighttime Earth texture with city lights and clear country boundaries
-const earthTextureUrl = 'https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=2048&q=80';
+// Use a proper Earth texture from a reliable source
+const earthTextureUrl = 'https://images.unsplash.com/photo-1564053489984-317bbd824340?w=2048&q=80';
 
 // Coordinates for office locations
 const locations = [
