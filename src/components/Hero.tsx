@@ -263,9 +263,9 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right side - Globe */}
+          {/* Right side - Globe with floating stats */}
           <div className="relative">
-            <div className="w-full h-96 md:h-[500px] bg-black/20 rounded-2xl overflow-hidden shadow-glow border border-accent/30 backdrop-blur-sm">
+            <div className="w-full h-96 md:h-[500px] relative">
               <Canvas camera={{ position: [0, 0, 2.2], fov: 45 }}>
                 <ambientLight intensity={0.2} />
                 <directionalLight 
@@ -290,6 +290,22 @@ const Hero = () => {
                   rotateSpeed={0.3}
                 />
               </Canvas>
+              
+              {/* Floating stat cards */}
+              <div className="absolute top-8 left-4 bg-black/70 backdrop-blur-sm rounded-xl p-4 border border-accent/30 shadow-glow">
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1">24/7</div>
+                <div className="text-sm text-white/80">Global Coverage</div>
+              </div>
+              
+              <div className="absolute top-1/2 -right-4 transform -translate-y-1/2 bg-black/70 backdrop-blur-sm rounded-xl p-4 border border-accent/30 shadow-glow">
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1">95%+</div>
+                <div className="text-sm text-white/80">Meeting Show Rate</div>
+              </div>
+              
+              <div className="absolute bottom-8 left-8 bg-black/70 backdrop-blur-sm rounded-xl p-4 border border-accent/30 shadow-glow">
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1">3x</div>
+                <div className="text-sm text-white/80">Faster Pipeline</div>
+              </div>
             </div>
           </div>
         </div>
