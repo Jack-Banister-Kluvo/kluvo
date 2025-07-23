@@ -38,7 +38,7 @@ const Hero = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="p-6">
-              <div className="text-4xl font-bold text-accent mb-2">£14</div>
+              <div className="text-4xl font-bold text-accent mb-2">As low as £14</div>
               <div className="text-lg text-white/80">per hour</div>
             </div>
             <div className="p-6">

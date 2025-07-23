@@ -10,7 +10,7 @@ const Footer = () => {
               Office-based reps, advanced technology, and complete visibility.
             </p>
             <div className="mt-6">
-              <p className="text-xl font-semibold">£14/hour</p>
+              <p className="text-lg font-semibold">Starting from £14/hour</p>
               <p className="text-primary-foreground/80">Simple, transparent pricing</p>
             </div>
           </div>
