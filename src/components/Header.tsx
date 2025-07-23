@@ -9,7 +9,10 @@ const Header = () => {
             <img 
               src="/lovable-uploads/879c65d7-50b8-4472-8daf-a302dbc68f6f.png" 
               alt="Kluvo Logo" 
-              className="h-10 w-10 object-contain"
+              className="h-10 w-10 object-contain brightness-0 invert-0"
+              style={{
+                filter: 'brightness(0) saturate(100%) invert(19%) sepia(74%) saturate(1349%) hue-rotate(137deg) brightness(95%) contrast(95%)'
+              }}
             />
             <span className="ml-3 text-xl font-bold text-primary">KLUVO</span>
           </div>
