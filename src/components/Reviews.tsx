@@ -1,10 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Reviews = () => {
   const [currentReview, setCurrentReview] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const reviews = [
     {
@@ -25,6 +26,14 @@ const Reviews = () => {
     },
     {
       id: 3,
+      text: "Really good service. Setup was quick and results came fast.",
+      author: "Alex K.",
+      title: "Marketing Manager",
+      rating: 5,
+      avatar: "👨‍💼"
+    },
+    {
+      id: 4,
       text: "Good service overall but took a few weeks to get the messaging right. The reps are professional and the booking quality is solid. Price is fair compared to hiring internally. Would of been nice to have faster setup but worth the wait.",
       author: "Jennifer K.",
       title: "VP Marketing", 
@@ -32,7 +41,15 @@ const Reviews = () => {
       avatar: "👩‍🎯"
     },
     {
-      id: 4,
+      id: 5,
+      text: "Works well for us. The reps sound professional and booking quality is decent. Not perfect but good value for money.",
+      author: "Rachel T.",
+      title: "Business Owner",
+      rating: 4,
+      avatar: "👩‍💼"
+    },
+    {
+      id: 6,
       text: "Kluvo has been really helpful for our outbound efforts. The predictive dialing tech means our conversion rates are much better than manual calling. Only thing is sometimes the follow up cadence could be more aggressive but that might just be our industry.",
       author: "David Chen",
       title: "Growth Manager",
@@ -40,7 +57,15 @@ const Reviews = () => {
       avatar: "👨‍📊"
     },
     {
-      id: 5,
+      id: 7,
+      text: "Solid service. Gets the job done.",
+      author: "Mark R.",
+      title: "Sales Manager",
+      rating: 4,
+      avatar: "👨‍💼"
+    },
+    {
+      id: 8,
       text: "We tried them for 3 months. Results were ok but not amazing. The quality control is good and the reps are professional. Probably works better for some industries than others. Customer service was responsive when we had questions tho.",
       author: "Lisa R.",
       title: "Business Development",
@@ -48,21 +73,63 @@ const Reviews = () => {
       avatar: "👩‍💼"
     },
     {
-      id: 6,
+      id: 9,
+      text: "Great team, really impressed with there knowledge of our industry. The calls converted well and we ended up signing more deals. Would definetly recommend.",
+      author: "James Wilson",
+      title: "Head of Sales",
+      rating: 5,
+      avatar: "👨‍💻"
+    },
+    {
+      id: 10,
       text: "Absolutley blown away by the results! Our calendar went from empty to fully booked within 6 weeks. The integration with our CRM was seamless and the reporting is excellent. Team in Beirut really knows their stuff. Can't imagine going back to doing this ourselves.",
       author: "Tom Bradley",
       title: "CEO",
       rating: 5,
       avatar: "👨‍💼"
+    },
+    {
+      id: 11,
+      text: "Pretty good experience overall. Few hiccups at first but they sorted it out quick.",
+      author: "Emma D.",
+      title: "Operations Director", 
+      rating: 4,
+      avatar: "👩‍💼"
+    },
+    {
+      id: 12,
+      text: "The service is okay. We've seen some improvement in our outbound but nothing groundbreaking. The price point is reasonable and the team is responsive when we need support. Might work better for other companies.",
+      author: "Steve M.",
+      title: "VP Sales",
+      rating: 3,
+      avatar: "👨‍📊"
     }
   ];
 
+  // Auto-play functionality
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    const timer = setInterval(() => {
+      setCurrentReview((prev) => (prev + 1) % reviews.length);
+    }, 4000); // Change every 4 seconds
+
+    return () => clearInterval(timer);
+  }, [isAutoPlaying, reviews.length]);
+
   const nextReview = () => {
+    setIsAutoPlaying(false); // Stop auto-play when user interacts
     setCurrentReview((prev) => (prev + 1) % reviews.length);
   };
 
   const prevReview = () => {
+    setIsAutoPlaying(false); // Stop auto-play when user interacts
     setCurrentReview((prev) => (prev - 1 + reviews.length) % reviews.length);
+  };
+
+  const goToReview = (index: number) => {
+    setIsAutoPlaying(false); // Stop auto-play when user interacts
+    setCurrentReview(index);
   };
 
   const StarRating = ({ rating }: { rating: number }) => {
@@ -143,7 +210,7 @@ const Reviews = () => {
               {reviews.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentReview(index)}
+                  onClick={() => goToReview(index)}
                   className={`w-3 h-3 rounded-full transition-all ${
                     index === currentReview 
                       ? "bg-white" 
