@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
 import * as THREE from 'three';
-import earthTexture from '@/assets/earth-texture.jpg';
+import digitalEarthTexture from '@/assets/digital-earth-texture.jpg';
 
 // Coordinates for office locations
 const locations = [
@@ -53,12 +53,25 @@ function LocationPin({ position, name, color }: { position: THREE.Vector3; name:
         onPointerEnter={() => setHovered(true)}
         onPointerLeave={() => setHovered(false)}
       >
-        <coneGeometry args={[0.02, 0.1, 8]} />
-        <meshStandardMaterial color={color} />
+        <coneGeometry args={[0.03, 0.15, 8]} />
+        <meshStandardMaterial 
+          color="#00ff41" 
+          emissive="#00ff41"
+          emissiveIntensity={hovered ? 0.8 : 0.4}
+        />
+      </mesh>
+      {/* Glowing base for pin */}
+      <mesh position={position}>
+        <sphereGeometry args={[0.02, 8, 8]} />
+        <meshStandardMaterial 
+          color="#00ff41"
+          emissive="#00ff41" 
+          emissiveIntensity={0.6}
+        />
       </mesh>
       {hovered && (
         <Html position={position}>
-          <div className="bg-white px-3 py-2 rounded-lg shadow-lg border border-border text-sm font-medium text-foreground whitespace-nowrap">
+          <div className="bg-primary px-4 py-2 rounded-lg shadow-glow border border-accent text-sm font-medium text-white whitespace-nowrap">
             {name}
           </div>
         </Html>
@@ -69,7 +82,7 @@ function LocationPin({ position, name, color }: { position: THREE.Vector3; name:
 
 function Globe() {
   const globeRef = useRef<THREE.Group>(null);
-  const texture = useLoader(THREE.TextureLoader, earthTexture);
+  const texture = useLoader(THREE.TextureLoader, digitalEarthTexture);
   
   useFrame(() => {
     if (globeRef.current) {
@@ -96,8 +109,10 @@ function Globe() {
         <sphereGeometry args={[1, 64, 64]} />
         <meshStandardMaterial 
           map={texture}
-          roughness={0.8}
-          metalness={0.1}
+          roughness={0.3}
+          metalness={0.8}
+          emissive="#001100"
+          emissiveIntensity={0.2}
         />
       </mesh>
       {pins}
@@ -107,20 +122,24 @@ function Globe() {
 
 const WorldMap = () => {
   return (
-    <section className="py-20 bg-background relative overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-primary relative overflow-hidden">
+      {/* Digital grid background */}
+      <div className="absolute inset-0 bg-pattern-grid bg-grid opacity-20"></div>
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-background to-transparent"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             Global Presence, Local Expertise
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-white/80 max-w-3xl mx-auto mb-8">
             Our teams operate from modern offices in Beirut and Kuala Lumpur, 
             delivering world-class outbound sales services with local market understanding.
           </p>
         </div>
         
         <div className="relative">
-          <div className="w-full h-96 md:h-[500px] bg-gradient-subtle rounded-2xl overflow-hidden shadow-elegant">
+          <div className="w-full h-96 md:h-[500px] bg-black/50 rounded-2xl overflow-hidden shadow-glow border border-accent/30 backdrop-blur-sm">
             <Canvas camera={{ position: [0, 0, 3], fov: 45 }}>
               <ambientLight intensity={0.3} />
               <directionalLight 
