@@ -134,7 +134,7 @@ const AdsServices = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1600px] mx-auto">
             {tiers.map((tier, index) => {
               const Icon = tier.icon;
               const isPremium = tier.badge === "TIER 3";
@@ -142,9 +142,7 @@ const AdsServices = () => {
               return (
                 <Card 
                   key={index} 
-                  className={`${tier.color} border-2 ${tier.borderColor} hover:shadow-elegant transition-all duration-300 ${
-                    isPremium ? "md:col-span-2" : ""
-                  }`}
+                  className={`${tier.color} border-2 ${tier.borderColor} hover:shadow-elegant transition-all duration-300`}
                 >
                   <CardHeader>
                     <div className="flex items-start justify-between mb-4">
