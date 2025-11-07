@@ -5,6 +5,7 @@ import Features from "@/components/Features";
 import Dashboard from "@/components/Dashboard";
 import Process from "@/components/Process";
 import Technology from "@/components/Technology";
+import AdsServices from "@/components/AdsServices";
 import Reviews from "@/components/Reviews";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -27,6 +28,7 @@ const Index = () => {
       <section id="technology">
         <Technology />
       </section>
+      <AdsServices />
       <Reviews />
       <Contact />
       <Footer />
