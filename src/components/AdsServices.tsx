@@ -73,10 +73,9 @@ const AdsServices = () => {
       badge: "TIER 3",
       title: "Scale & Dominate",
       subtitle: null,
-      color: "bg-gradient-primary",
-      borderColor: "border-primary",
-      iconColor: "text-primary-foreground",
-      textColor: "text-primary-foreground",
+      color: "bg-accent/10",
+      borderColor: "border-accent",
+      iconColor: "text-accent",
       forWho: "Established brands, e-commerce, SaaS",
       goal: "Scale conversions, automate retargeting, and dominate paid visibility.",
       features: [
@@ -137,7 +136,6 @@ const AdsServices = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1600px] mx-auto">
             {tiers.map((tier, index) => {
               const Icon = tier.icon;
-              const isPremium = tier.badge === "TIER 3";
               
               return (
                 <Card 
@@ -147,18 +145,18 @@ const AdsServices = () => {
                   <CardHeader>
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex items-center gap-3">
-                        <div className={`p-3 rounded-lg ${isPremium ? "bg-primary-foreground/20" : "bg-background"}`}>
+                        <div className="p-3 rounded-lg bg-background">
                           <Icon className={`w-6 h-6 ${tier.iconColor}`} />
                         </div>
                         <div>
-                          <Badge variant="outline" className={`mb-2 ${isPremium ? "bg-primary-foreground/20 text-primary-foreground border-primary-foreground/30" : ""}`}>
+                          <Badge variant="outline" className="mb-2">
                             {tier.badge}
                           </Badge>
-                          <CardTitle className={`text-2xl ${tier.textColor || "text-primary"}`}>
+                          <CardTitle className="text-2xl text-primary">
                             {tier.title}
                           </CardTitle>
                           {tier.subtitle && (
-                            <CardDescription className={tier.textColor ? `${tier.textColor} opacity-80` : ""}>
+                            <CardDescription>
                               {tier.subtitle}
                             </CardDescription>
                           )}
@@ -168,14 +166,14 @@ const AdsServices = () => {
 
                     <div className="space-y-3">
                       <div>
-                        <p className={`text-sm font-semibold ${tier.textColor || "text-foreground"}`}>For:</p>
-                        <p className={`text-sm ${tier.textColor ? `${tier.textColor} opacity-90` : "text-muted-foreground"}`}>
+                        <p className="text-sm font-semibold text-foreground">For:</p>
+                        <p className="text-sm text-muted-foreground">
                           {tier.forWho}
                         </p>
                       </div>
                       <div>
-                        <p className={`text-sm font-semibold ${tier.textColor || "text-foreground"}`}>Goal:</p>
-                        <p className={`text-sm ${tier.textColor ? `${tier.textColor} opacity-90` : "text-muted-foreground"}`}>
+                        <p className="text-sm font-semibold text-foreground">Goal:</p>
+                        <p className="text-sm text-muted-foreground">
                           {tier.goal}
                         </p>
                       </div>
@@ -185,14 +183,14 @@ const AdsServices = () => {
                   <CardContent>
                     <div className="space-y-4">
                       <div>
-                        <h4 className={`font-semibold mb-3 ${tier.textColor || "text-primary"}`}>
+                        <h4 className="font-semibold mb-3 text-primary">
                           What's Included:
                         </h4>
                         <ul className="space-y-2">
                           {tier.features.map((feature, idx) => (
                             <li key={idx} className="flex items-start gap-2">
                               <CheckCircle2 className={`w-5 h-5 flex-shrink-0 mt-0.5 ${tier.iconColor}`} />
-                              <span className={`text-sm ${tier.textColor ? `${tier.textColor} opacity-90` : "text-foreground"}`}>
+                              <span className="text-sm text-foreground">
                                 {feature}
                               </span>
                             </li>
@@ -200,21 +198,21 @@ const AdsServices = () => {
                         </ul>
                       </div>
 
-                      <div className={`pt-4 border-t ${isPremium ? "border-primary-foreground/20" : "border-border"}`}>
-                        <p className={`text-sm font-semibold mb-2 ${tier.textColor || "text-foreground"}`}>
+                      <div className="pt-4 border-t border-border">
+                        <p className="text-sm font-semibold mb-2 text-foreground">
                           Perfect For:
                         </p>
-                        <p className={`text-sm ${tier.textColor ? `${tier.textColor} opacity-90` : "text-muted-foreground"}`}>
+                        <p className="text-sm text-muted-foreground">
                           {tier.perfectFor}
                         </p>
                       </div>
 
                       {tier.addOns && (
                         <div className="pt-2">
-                          <p className={`text-sm font-semibold mb-1 ${tier.textColor || "text-foreground"}`}>
+                          <p className="text-sm font-semibold mb-1 text-foreground">
                             Optional Add-Ons:
                           </p>
-                          <p className={`text-sm ${tier.textColor ? `${tier.textColor} opacity-90` : "text-muted-foreground"}`}>
+                          <p className="text-sm text-muted-foreground">
                             {tier.addOns}
                           </p>
                         </div>
@@ -222,10 +220,10 @@ const AdsServices = () => {
 
                       {tier.upsell && (
                         <div className="pt-2">
-                          <p className={`text-sm font-semibold mb-1 ${tier.textColor || "text-foreground"}`}>
+                          <p className="text-sm font-semibold mb-1 text-foreground">
                             Natural Upsell:
                           </p>
-                          <p className={`text-sm ${tier.textColor ? `${tier.textColor} opacity-90` : "text-muted-foreground"}`}>
+                          <p className="text-sm text-muted-foreground">
                             {tier.upsell}
                           </p>
                         </div>
