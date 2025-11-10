@@ -2,9 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { CheckCircle2, Sparkles, TrendingUp, Rocket, Zap, Check, Settings } from "lucide-react";
+import { CheckCircle2, Sparkles, TrendingUp, Rocket, Zap, Check, Settings, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import BookingModal from "./BookingModal";
+import adsDashboardHero from "@/assets/ads-dashboard-hero.jpg";
 
 const AdsServices = () => {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
@@ -171,19 +172,89 @@ const AdsServices = () => {
   ];
 
   return (
-    <section id="ads-services" className="py-20 bg-gradient-subtle">
-      <div className="container mx-auto px-4">
-        {/* Hero Section */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-            Boost Your Online Presence with Kluvo's ADS Services
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            At Kluvo, we specialize in delivering tailored advertising solutions for businesses at every stage of growth. 
-            Whether you're just starting or ready to scale, our comprehensive packages ensure you get the most out of your 
-            ad spend, drive results, and grow your business.
-          </p>
+    <section id="ads-services" className="min-h-screen">
+      {/* Hero Section */}
+      <div className="relative bg-gradient-to-br from-background via-background to-primary/5 overflow-hidden">
+        <div className="container mx-auto px-4 py-20 lg:py-32">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Text Focus */}
+            <div className="space-y-8 animate-fade-in">
+              <div className="space-y-4">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-tight">
+                  Boost Your Online Presence with Kluvo's Ad Services
+                </h1>
+                <p className="text-xl md:text-2xl text-foreground/80 max-w-2xl">
+                  Smart, data-driven advertising strategies that help your business grow, convert, and dominate online.
+                </p>
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg" 
+                  className="text-lg px-8 py-6 shadow-elegant hover:scale-105 transition-transform"
+                  onClick={() => setBookingModalOpen(true)}
+                >
+                  Book a Free Consultation
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  className="text-lg px-8 py-6 hover:scale-105 transition-transform"
+                  onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  See Our Work
+                </Button>
+              </div>
+            </div>
+
+            {/* Right Side - Visual Focus */}
+            <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="relative rounded-2xl overflow-hidden shadow-elegant">
+                <img 
+                  src={adsDashboardHero} 
+                  alt="Marketing dashboard showing growth charts and ad performance metrics"
+                  className="w-full h-auto"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent pointer-events-none" />
+              </div>
+              {/* Decorative elements */}
+              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary/5 rounded-full blur-3xl" />
+            </div>
+          </div>
         </div>
+
+        {/* Curved Divider */}
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-background" style={{ clipPath: 'ellipse(100% 100% at 50% 100%)' }} />
+      </div>
+
+      {/* Credibility Bar */}
+      <div className="bg-muted/30 border-y border-border py-12 animate-fade-in">
+        <div className="container mx-auto px-4">
+          <div className="text-center space-y-6">
+            <h3 className="text-xl md:text-2xl font-semibold text-foreground">
+              Trusted by fast-growing brands across the UK, US, and Europe
+            </h3>
+            
+            {/* Placeholder for logos - can be replaced with real client logos */}
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <div key={i} className="w-24 h-12 bg-muted rounded flex items-center justify-center">
+                  <span className="text-xs text-muted-foreground font-medium">Client {i}</span>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-sm md:text-base text-muted-foreground font-medium">
+              Average 3.2x ROI increase within 90 days of campaign launch
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content Container */}
+      <div className="container mx-auto px-4 py-20">
 
         {/* Service Tiers Section */}
         <div className="mb-16">
@@ -351,7 +422,7 @@ const AdsServices = () => {
         </div>
 
         {/* Testimonials Section */}
-        <div className="mb-16">
+        <div id="testimonials" className="mb-16">
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4">
               Trusted by Businesses Who've Grown with Us
