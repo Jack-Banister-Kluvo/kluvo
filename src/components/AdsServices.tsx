@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, Sparkles, TrendingUp, Rocket, Zap } from "lucide-react";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { CheckCircle2, Sparkles, TrendingUp, Rocket, Zap, Check, Settings } from "lucide-react";
 import { useState } from "react";
 import BookingModal from "./BookingModal";
 
@@ -104,6 +105,69 @@ const AdsServices = () => {
       title: "Customized Strategies",
       description: "We tailor each campaign to your business objectives, ensuring maximum ROI.",
     },
+  ];
+
+  const comparisonData = [
+    {
+      feature: "Platform Setup",
+      tier0: "✅",
+      tier1: "✅",
+      tier2: "✅",
+      tier3: "✅"
+    },
+    {
+      feature: "Campaigns Included",
+      tier0: "1 Basic",
+      tier1: "1-2 Optimized",
+      tier2: "Multi-Channel",
+      tier3: "Cross-Platform"
+    },
+    {
+      feature: "Automation & Tracking",
+      tier0: "—",
+      tier1: "Basic",
+      tier2: "✅ Advanced",
+      tier3: "✅ Full Suite"
+    },
+    {
+      feature: "SEO Support",
+      tier0: "—",
+      tier1: "Basic + GMB",
+      tier2: "⚙️",
+      tier3: "✅ Full Strategy"
+    },
+    {
+      feature: "Creative Assets",
+      tier0: "1-2 Images",
+      tier1: "Basic",
+      tier2: "Optimized",
+      tier3: "✅ Video + UGC"
+    },
+    {
+      feature: "Analytics & Reporting",
+      tier0: "1 Summary",
+      tier1: "Monthly Report",
+      tier2: "Dashboard + Call",
+      tier3: "✅ Weekly Reviews"
+    }
+  ];
+
+  const testimonials = [
+    {
+      quote: "Kluvo's ad team transformed our visibility in just 6 weeks.",
+      author: "Sarah M.",
+      company: "E-commerce Brand"
+    },
+    {
+      quote: "Their monthly reports and data insights helped us double our conversions.",
+      author: "Michael T.",
+      company: "Tech Startup"
+    },
+    {
+      quote: "Professional, responsive, and truly results-driven.",
+      author: "Jessica L.",
+      company: "Service Business"
+    }
   ];
 
   return (
@@ -233,6 +297,89 @@ const AdsServices = () => {
                 </Card>
               );
             })}
+          </div>
+        </div>
+
+        {/* Comparison Table */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              Quick Comparison
+            </h3>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Compare features across all tiers at a glance
+            </p>
+          </div>
+          
+          <div className="max-w-6xl mx-auto overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[200px] font-bold text-foreground">Feature</TableHead>
+                  <TableHead className="text-center font-bold text-foreground">Tier 0</TableHead>
+                  <TableHead className="text-center font-bold text-foreground">Tier 1</TableHead>
+                  <TableHead className="text-center font-bold text-foreground">Tier 2</TableHead>
+                  <TableHead className="text-center font-bold text-foreground">Tier 3</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {comparisonData.map((row, index) => (
+                  <TableRow key={index}>
+                    <TableCell className="font-medium text-foreground">{row.feature}</TableCell>
+                    <TableCell className="text-center text-muted-foreground">{row.tier0}</TableCell>
+                    <TableCell className="text-center text-muted-foreground">{row.tier1}</TableCell>
+                    <TableCell className="text-center text-muted-foreground">{row.tier2}</TableCell>
+                    <TableCell className="text-center text-muted-foreground">{row.tier3}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-muted-foreground mb-4">
+              Need help choosing the right plan? Our team can recommend the best fit for your goals.
+            </p>
+            <Button 
+              variant="outline" 
+              size="lg"
+              onClick={() => setBookingModalOpen(true)}
+            >
+              Book a Free Consultation
+            </Button>
+          </div>
+        </div>
+
+        {/* Testimonials Section */}
+        <div className="mb-16">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              Trusted by Businesses Who've Grown with Us
+            </h3>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              We've helped brands across e-commerce, tech, and services achieve measurable growth.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="bg-card hover:shadow-soft transition-shadow">
+                <CardContent className="pt-6">
+                  <div className="mb-4">
+                    <svg className="w-8 h-8 text-primary opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </svg>
+                  </div>
+                  <p className="text-foreground mb-4 italic">
+                    "{testimonial.quote}"
+                  </p>
+                  <div className="border-t border-border pt-4">
+                    <p className="font-semibold text-primary">{testimonial.author}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.company}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
 
