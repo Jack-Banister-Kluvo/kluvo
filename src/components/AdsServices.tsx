@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { CheckCircle2, Sparkles, TrendingUp, Rocket, Zap, Check, Settings, ArrowRight } from "lucide-react";
+import { CheckCircle2, Sparkles, TrendingUp, Rocket, Zap, Check, Settings, ArrowRight, Target, Users, Globe } from "lucide-react";
 import { useState } from "react";
 import BookingModal from "./BookingModal";
 import adsDashboardHero from "@/assets/ads-dashboard-hero.jpg";
@@ -221,26 +221,92 @@ const AdsServices = () => {
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-background" style={{ clipPath: 'ellipse(100% 100% at 50% 100%)' }} />
       </div>
 
-      {/* Credibility Bar */}
-      <div className="bg-muted/30 border-y border-border py-12 animate-fade-in">
-        <div className="container mx-auto px-4">
-          <div className="text-center space-y-6">
-            <h3 className="text-xl md:text-2xl font-semibold text-foreground">
-              Trusted by fast-growing brands across the UK, US, and Europe
-            </h3>
-            
-            {/* Placeholder for logos - can be replaced with real client logos */}
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div key={i} className="w-24 h-12 bg-muted rounded flex items-center justify-center">
-                  <span className="text-xs text-muted-foreground font-medium">Client {i}</span>
-                </div>
-              ))}
-            </div>
+      {/* Stats & Impact Section */}
+      <div className="relative bg-gradient-to-br from-background via-muted/20 to-primary/5 py-20 overflow-hidden">
+        {/* Decorative background element */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
+            <TrendingUp className="w-full h-full text-primary" strokeWidth={0.5} />
+          </div>
+        </div>
 
-            <p className="text-sm md:text-base text-muted-foreground font-medium">
-              Average 3.2x ROI increase within 90 days of campaign launch
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16 space-y-4 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold text-primary">
+              Proven Results. Real Growth.
+            </h2>
+            <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto">
+              We help businesses achieve measurable success through smarter advertising, data-driven insights, and continuous optimization.
             </p>
+          </div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-12">
+            {[
+              {
+                icon: TrendingUp,
+                stat: "3.2x Average ROI",
+                description: "Our campaigns consistently outperform industry benchmarks.",
+                color: "text-primary"
+              },
+              {
+                icon: Target,
+                stat: "90-Day Growth Focus",
+                description: "Every campaign designed to deliver results within the first 3 months.",
+                color: "text-accent"
+              },
+              {
+                icon: Users,
+                stat: "100+ Businesses Helped",
+                description: "From solopreneurs to global teams — our strategies scale with you.",
+                color: "text-primary"
+              },
+              {
+                icon: Globe,
+                stat: "Multi-Platform Expertise",
+                description: "Google, Meta, TikTok, and beyond — we meet your audience where they are.",
+                color: "text-accent"
+              }
+            ].map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <div 
+                  key={index} 
+                  className="text-center space-y-4 animate-fade-in hover:scale-105 transition-transform duration-300"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="flex justify-center">
+                    <div className="p-4 rounded-2xl bg-background shadow-soft">
+                      <Icon className={`w-10 h-10 ${item.color}`} strokeWidth={1.5} />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-primary mb-2">
+                      {item.stat}
+                    </h3>
+                    <p className="text-sm md:text-base text-foreground/70">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* CTA */}
+          <div className="text-center animate-fade-in" style={{ animationDelay: '0.5s' }}>
+            <p className="text-lg text-foreground/80 mb-6">
+              Want to see how we can help you grow?
+            </p>
+            <Button 
+              size="lg"
+              variant="outline"
+              className="shadow-soft hover:shadow-elegant transition-all hover:scale-105"
+              onClick={() => setBookingModalOpen(true)}
+            >
+              Book a Free Consultation
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
           </div>
         </div>
       </div>
