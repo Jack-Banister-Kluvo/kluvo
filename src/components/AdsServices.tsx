@@ -739,23 +739,6 @@ const AdsServices = () => {
           <div className="absolute bottom-0 left-0 right-0 h-16 bg-background" style={{ clipPath: 'ellipse(100% 100% at 50% 100%)' }} />
         </div>
 
-        {/* CTA Section */}
-        <div className="bg-primary text-primary-foreground rounded-lg p-8 md:p-12 text-center max-w-4xl mx-auto shadow-elegant">
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">
-            Not sure which plan is right for you?
-          </h3>
-          <p className="text-lg mb-6 opacity-90">
-            Let's chat! Book a free consultation with us today and learn how we can help you create 
-            a customized advertising strategy that fits your business needs.
-          </p>
-          <Button 
-            size="lg" 
-            variant="secondary"
-            onClick={() => setBookingModalOpen(true)}
-          >
-            Book Your Free Consultation
-          </Button>
-        </div>
       </div>
 
       <BookingModal 
