@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { CheckCircle2, Sparkles, TrendingUp, Rocket, Zap, Check, Settings, ArrowRight, Target, Users, Globe } from "lucide-react";
+import { CheckCircle2, Sparkles, TrendingUp, Rocket, Zap, Check, Settings, ArrowRight, Target, Users, Globe, Quote, Star } from "lucide-react";
 import { useState } from "react";
 import BookingModal from "./BookingModal";
 import adsDashboardHero from "@/assets/ads-dashboard-hero.jpg";
@@ -141,19 +141,22 @@ const AdsServices = () => {
 
   const testimonials = [
     {
-      quote: "Kluvo's ad team transformed our visibility in just 6 weeks.",
+      quote: "Working with Kluvo has been transformative. Their ad strategy and transparent reporting gave us full clarity — we saw a 45% increase in qualified leads within two months.",
       author: "Sarah M.",
-      company: "E-commerce Brand"
+      role: "Founder at BloomEcom",
+      initials: "SM"
     },
     {
-      quote: "Their monthly reports and data insights helped us double our conversions.",
+      quote: "The team at Kluvo truly understands our business. They took the time to optimize our campaigns and helped us lower ad costs by 30% without losing reach.",
       author: "Michael T.",
-      company: "Tech Startup"
+      role: "Marketing Manager at SaaSFlow",
+      initials: "MT"
     },
     {
-      quote: "Professional, responsive, and truly results-driven.",
+      quote: "Professional, responsive, and results-driven. Their data insights and creative approach helped our brand build real visibility online.",
       author: "Jessica L.",
-      company: "Service Business"
+      role: "Director at Insight Services",
+      initials: "JL"
     }
   ];
 
@@ -553,125 +556,82 @@ const AdsServices = () => {
           <div className="absolute top-0 left-0 right-0 h-16 bg-background" style={{ clipPath: 'ellipse(100% 100% at 50% 0%)' }} />
           
           {/* Gradient Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/5 to-primary/10 -z-10" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-accent/5 to-background/50 -z-10" />
+          
+          {/* Floating Shapes */}
+          <div className="absolute top-10 right-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 left-20 w-40 h-40 bg-accent/10 rounded-full blur-3xl animate-pulse delay-75" />
 
-          <div className="relative z-10">
+          <div className="relative z-10 container mx-auto">
             <div className="text-center mb-16 space-y-4 animate-fade-in">
               <h3 className="text-4xl md:text-5xl font-bold text-primary mb-2">
-                What Our Clients Say
+                What Our Clients Are Saying
               </h3>
-              <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto">
-                Real results. Real stories. Here's how businesses grew with Kluvo.
+              <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto">
+                See how Kluvo helps businesses grow through data-driven ad campaigns and dedicated support.
               </p>
             </div>
 
-            {/* Asymmetric Grid Layout */}
-            <div className="max-w-6xl mx-auto space-y-6">
-              {/* Featured Testimonial - Larger */}
-              <div 
-                className="animate-fade-in mx-auto max-w-4xl"
-                style={{ animationDelay: '0.1s' }}
-              >
-                <Card className="bg-background border-2 border-primary/20 shadow-elegant hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group">
+            {/* Wide Testimonial Boxes */}
+            <div className="grid md:grid-cols-1 gap-8 max-w-5xl mx-auto mb-12">
+              {testimonials.map((testimonial, index) => (
+                <Card 
+                  key={index} 
+                  className="bg-card/90 backdrop-blur-md border-border/50 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-1 animate-fade-in group"
+                  style={{ animationDelay: `${index * 0.15}s` }}
+                >
                   <CardContent className="p-8 md:p-10">
-                    <div className="flex items-start gap-6">
-                      {/* Avatar Circle */}
-                      <div className="flex-shrink-0">
-                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-xl shadow-soft">
-                          SM
+                    <div className="flex flex-col md:flex-row gap-6 items-start">
+                      {/* Avatar with Quote Icon */}
+                      <div className="relative flex-shrink-0">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border-2 border-primary/20 group-hover:border-primary/40 transition-colors duration-300">
+                          <span className="text-primary font-bold text-xl">
+                            {testimonial.initials}
+                          </span>
+                        </div>
+                        <div className="absolute -top-2 -left-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                          <Quote className="w-4 h-4 text-primary-foreground" />
                         </div>
                       </div>
-                      
+
+                      {/* Content */}
                       <div className="flex-1">
-                        {/* Quote Icon */}
-                        <div className="mb-4">
-                          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                            <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                            </svg>
-                          </div>
+                        {/* Star Rating */}
+                        <div className="flex gap-1 mb-4">
+                          {[1, 2, 3, 4, 5].map((star) => (
+                            <Star key={star} className="w-5 h-5 fill-primary text-primary" />
+                          ))}
                         </div>
-                        
-                        <p className="text-xl md:text-2xl text-foreground mb-6 italic leading-relaxed">
-                          "{testimonials[0].quote}"
+
+                        {/* Quote */}
+                        <p className="text-foreground text-lg leading-relaxed mb-6 italic">
+                          "{testimonial.quote}"
                         </p>
-                        
-                        <div className="flex items-center gap-3 pt-4 border-t border-border">
-                          <div>
-                            <p className="font-bold text-lg text-primary">{testimonials[0].author}</p>
-                            <p className="text-sm text-muted-foreground">{testimonials[0].company}</p>
-                          </div>
+
+                        {/* Author Info */}
+                        <div className="border-t border-border/30 pt-4">
+                          <p className="font-semibold text-foreground text-lg">{testimonial.author}</p>
+                          <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                         </div>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
-              </div>
-
-              {/* Two Smaller Testimonials - Side by Side */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {testimonials.slice(1).map((testimonial, index) => {
-                  const initials = testimonial.author.split(' ').map(n => n[0]).join('');
-                  const bgColor = index === 0 ? 'bg-background' : 'bg-primary/5';
-                  
-                  return (
-                    <div
-                      key={index}
-                      className="animate-fade-in"
-                      style={{ animationDelay: `${(index + 2) * 0.1}s` }}
-                    >
-                      <Card className={`${bgColor} border border-border shadow-soft hover:shadow-elegant hover:-translate-y-1 transition-all duration-500 h-full group`}>
-                        <CardContent className="p-6">
-                          <div className="flex items-start gap-4 mb-4">
-                            {/* Avatar Circle */}
-                            <div className="flex-shrink-0">
-                              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-primary-foreground font-semibold text-sm shadow-soft">
-                                {initials}
-                              </div>
-                            </div>
-                            
-                            {/* Quote Icon */}
-                            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/15 to-accent/15 flex items-center justify-center flex-shrink-0">
-                              <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                              </svg>
-                            </div>
-                          </div>
-                          
-                          <p className="text-base md:text-lg text-foreground mb-4 italic leading-relaxed">
-                            "{testimonial.quote}"
-                          </p>
-                          
-                          <div className="pt-4 border-t border-border">
-                            <p className="font-bold text-primary">{testimonial.author}</p>
-                            <p className="text-sm text-muted-foreground">{testimonial.company}</p>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  );
-                })}
-              </div>
+              ))}
             </div>
 
-            {/* CTA Bar */}
-            <div 
-              className="mt-16 text-center space-y-6 animate-fade-in"
-              style={{ animationDelay: '0.5s' }}
-            >
-              <div className="max-w-2xl mx-auto bg-background/80 backdrop-blur-sm rounded-2xl p-8 shadow-soft border border-border">
-                <p className="text-lg md:text-xl text-foreground/90 font-medium mb-4">
-                  Ready to see results like these?
-                </p>
-                <Button 
-                  size="lg"
-                  className="shadow-elegant hover:scale-105 transition-transform"
-                  onClick={() => setBookingModalOpen(true)}
-                >
-                  Book a Free Consultation
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </div>
+            {/* CTA Strip */}
+            <div className="text-center bg-card/60 backdrop-blur-sm rounded-2xl border border-border/50 p-8 max-w-3xl mx-auto shadow-lg animate-fade-in" style={{ animationDelay: '0.5s' }}>
+              <p className="text-xl font-semibold mb-4 text-foreground">
+                Want to see results like these?
+              </p>
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl hover:shadow-primary/20 transition-all duration-300"
+                onClick={() => setBookingModalOpen(true)}
+              >
+                Book a Free Consultation
+              </Button>
             </div>
           </div>
 
