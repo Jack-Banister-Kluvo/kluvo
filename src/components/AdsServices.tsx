@@ -315,122 +315,169 @@ const AdsServices = () => {
       <div className="container mx-auto px-4 py-20">
 
         {/* Service Tiers Section */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              Choose the Right Plan for Your Business
-            </h3>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We offer flexible ad management services designed for businesses of all sizes. 
-              Browse our packages to find the right fit for your needs.
-            </p>
+        <div className="relative mb-16 bg-gradient-to-br from-background via-background to-primary/5 py-16 -mx-4 px-4 rounded-3xl overflow-hidden">
+          {/* Decorative background element */}
+          <div className="absolute inset-0 opacity-5 pointer-events-none">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
+              <Rocket className="w-full h-full text-primary" strokeWidth={0.3} />
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1600px] mx-auto">
-            {tiers.map((tier, index) => {
-              const Icon = tier.icon;
-              
-              return (
-                <Card 
-                  key={index} 
-                  className={`${tier.color} border-2 ${tier.borderColor} hover:shadow-elegant transition-all duration-300`}
-                >
-                  <CardHeader>
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex items-center gap-3">
-                        <div className="p-3 rounded-lg bg-background">
-                          <Icon className={`w-6 h-6 ${tier.iconColor}`} />
+          <div className="relative z-10">
+            <div className="text-center mb-12 space-y-4 animate-fade-in">
+              <h3 className="text-4xl md:text-5xl font-bold text-primary mb-2 relative inline-block">
+                Choose the Right Plan for Your Business
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-primary/30 rounded-full mt-2" />
+              </h3>
+              <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto mt-6">
+                Flexible plans that grow with your business — from your first campaign to full-scale domination.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-[1700px] mx-auto mb-12">
+              {tiers.map((tier, index) => {
+                const Icon = tier.icon;
+                const ctaTexts = ["Get Started", "Enquire Now", "Talk to Our Team", "Book a Strategy Call"];
+                
+                return (
+                  <Card 
+                    key={index} 
+                    className={`${tier.color} border-2 ${tier.borderColor} shadow-soft hover:shadow-elegant hover:-translate-y-2 hover:border-primary/40 transition-all duration-500 group relative overflow-hidden`}
+                  >
+                    {/* Hover glow effect */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-primary/5 to-transparent" />
+                    
+                    <CardHeader className="relative z-10">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="flex items-center gap-3">
+                          <div className="p-3 rounded-xl bg-background shadow-soft group-hover:scale-110 transition-transform duration-300">
+                            <Icon className={`w-6 h-6 ${tier.iconColor}`} />
+                          </div>
+                          <div>
+                            <Badge 
+                              variant="outline" 
+                              className="mb-2 group-hover:bg-primary/10 transition-colors duration-300"
+                            >
+                              {tier.badge}
+                            </Badge>
+                            <CardTitle className="text-2xl text-primary">
+                              {tier.title}
+                            </CardTitle>
+                            {tier.subtitle && (
+                              <CardDescription className="text-sm">
+                                {tier.subtitle}
+                              </CardDescription>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="space-y-3">
+                        <div>
+                          <p className="text-sm font-semibold text-foreground">For:</p>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            {tier.forWho}
+                          </p>
                         </div>
                         <div>
-                          <Badge variant="outline" className="mb-2">
-                            {tier.badge}
-                          </Badge>
-                          <CardTitle className="text-2xl text-primary">
-                            {tier.title}
-                          </CardTitle>
-                          {tier.subtitle && (
-                            <CardDescription>
-                              {tier.subtitle}
-                            </CardDescription>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="space-y-3">
-                      <div>
-                        <p className="text-sm font-semibold text-foreground">For:</p>
-                        <p className="text-sm text-muted-foreground">
-                          {tier.forWho}
-                        </p>
-                      </div>
-                      <div>
-                        <p className="text-sm font-semibold text-foreground">Goal:</p>
-                        <p className="text-sm text-muted-foreground">
-                          {tier.goal}
-                        </p>
-                      </div>
-                    </div>
-                  </CardHeader>
-
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="font-semibold mb-3 text-primary">
-                          What's Included:
-                        </h4>
-                        <ul className="space-y-2">
-                          {tier.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-start gap-2">
-                              <CheckCircle2 className={`w-5 h-5 flex-shrink-0 mt-0.5 ${tier.iconColor}`} />
-                              <span className="text-sm text-foreground">
-                                {feature}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div className="pt-4 border-t border-border">
-                        <p className="text-sm font-semibold mb-2 text-foreground">
-                          Perfect For:
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                          {tier.perfectFor}
-                        </p>
-                      </div>
-
-                      {tier.addOns && (
-                        <div className="pt-2">
-                          <p className="text-sm font-semibold mb-1 text-foreground">
-                            Optional Add-Ons:
-                          </p>
-                          <p className="text-sm text-muted-foreground">
-                            {tier.addOns}
+                          <p className="text-sm font-semibold text-foreground">Goal:</p>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            {tier.goal}
                           </p>
                         </div>
-                      )}
+                      </div>
+                    </CardHeader>
 
-                      {tier.upsell && (
-                        <div className="pt-2">
-                          <p className="text-sm font-semibold mb-1 text-foreground">
-                            Natural Upsell:
+                    <CardContent className="relative z-10">
+                      <div className="space-y-4">
+                        <div>
+                          <h4 className="font-semibold mb-3 text-primary">
+                            What's Included:
+                          </h4>
+                          <ul className="space-y-2.5">
+                            {tier.features.map((feature, idx) => (
+                              <li key={idx} className="flex items-start gap-2">
+                                <CheckCircle2 className={`w-5 h-5 flex-shrink-0 mt-0.5 ${tier.iconColor}`} />
+                                <span className="text-sm text-foreground leading-relaxed">
+                                  {feature}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <div className="pt-4 border-t border-border">
+                          <p className="text-sm font-semibold mb-2 text-foreground">
+                            Perfect For:
                           </p>
-                          <p className="text-sm text-muted-foreground">
-                            {tier.upsell}
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            {tier.perfectFor}
                           </p>
                         </div>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
+
+                        {tier.addOns && (
+                          <div className="pt-2">
+                            <p className="text-sm font-semibold mb-1 text-foreground">
+                              Optional Add-Ons:
+                            </p>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              {tier.addOns}
+                            </p>
+                          </div>
+                        )}
+
+                        {tier.upsell && (
+                          <div className="pt-2">
+                            <p className="text-sm font-semibold mb-1 text-foreground">
+                              Natural Upsell:
+                            </p>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              {tier.upsell}
+                            </p>
+                          </div>
+                        )}
+
+                        {/* CTA Button */}
+                        <div className="pt-4">
+                          <Button 
+                            className="w-full rounded-xl hover:scale-105 transition-transform duration-300 shadow-soft"
+                            variant={index === 2 || index === 3 ? "default" : "outline"}
+                            onClick={() => setBookingModalOpen(true)}
+                          >
+                            {ctaTexts[index]}
+                            <ArrowRight className="ml-2 w-4 h-4" />
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+
+            {/* Compare Plans CTA */}
+            <div className="text-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <Button 
+                variant="outline"
+                size="lg"
+                className="shadow-soft hover:shadow-elegant transition-all hover:scale-105"
+                onClick={() => {
+                  const comparisonSection = document.getElementById('comparison-table');
+                  comparisonSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+              >
+                Compare All Plans
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </div>
           </div>
+
+          {/* Curved Divider */}
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-background" style={{ clipPath: 'ellipse(100% 100% at 50% 100%)' }} />
         </div>
 
         {/* Comparison Table */}
-        <div className="mb-16">
+        <div id="comparison-table" className="mb-16 scroll-mt-20">
           <div className="text-center mb-8">
             <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4">
               Quick Comparison
