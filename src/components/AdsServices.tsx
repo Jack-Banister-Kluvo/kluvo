@@ -543,10 +543,7 @@ const AdsServices = () => {
                     <TableHeader>
                       <TableRow className="border-b-2 border-border/50 hover:bg-transparent">
                         <TableHead className="w-[220px] py-6 pl-8 font-bold text-base text-foreground">
-                          <div className="flex items-center gap-2">
-                            <Settings className="w-5 h-5 text-primary" />
-                            Feature
-                          </div>
+                          Feature
                         </TableHead>
                         {[
                           { name: "Tier 0", gradient: "from-muted/50 to-muted/30", badge: "STARTER" },
@@ -570,15 +567,13 @@ const AdsServices = () => {
                     <TableBody>
                       {[
                         {
-                          icon: "🧰",
                           feature: "Platform Setup",
-                          tier0: { type: "check", color: "text-primary" },
-                          tier1: { type: "check", color: "text-primary" },
-                          tier2: { type: "check", color: "text-primary" },
-                          tier3: { type: "check", color: "text-primary" }
+                          tier0: { type: "text", value: "✓", color: "text-primary" },
+                          tier1: { type: "text", value: "✓", color: "text-primary" },
+                          tier2: { type: "text", value: "✓", color: "text-primary" },
+                          tier3: { type: "text", value: "✓", color: "text-primary" }
                         },
                         {
-                          icon: "🎯",
                           feature: "Campaigns Included",
                           tier0: { type: "text", value: "1 Basic", color: "text-muted-foreground" },
                           tier1: { type: "text", value: "1-2 Optimized", color: "text-foreground/80" },
@@ -586,36 +581,32 @@ const AdsServices = () => {
                           tier3: { type: "text", value: "Cross-Platform", color: "text-accent" }
                         },
                         {
-                          icon: "⚙️",
                           feature: "Automation & Tracking",
-                          tier0: { type: "dash", color: "text-muted-foreground/50" },
+                          tier0: { type: "text", value: "—", color: "text-muted-foreground/50" },
                           tier1: { type: "text", value: "Basic", color: "text-foreground/70" },
-                          tier2: { type: "star", color: "text-primary" },
-                          tier3: { type: "double-check", color: "text-accent" }
+                          tier2: { type: "text", value: "Advanced", color: "text-primary" },
+                          tier3: { type: "text", value: "Full Suite", color: "text-accent" }
                         },
                         {
-                          icon: "🔍",
                           feature: "SEO Support",
-                          tier0: { type: "dash", color: "text-muted-foreground/50" },
+                          tier0: { type: "text", value: "—", color: "text-muted-foreground/50" },
                           tier1: { type: "text", value: "Basic + GMB", color: "text-foreground/70" },
-                          tier2: { type: "gear", color: "text-primary" },
-                          tier3: { type: "double-check", color: "text-accent" }
+                          tier2: { type: "text", value: "✓", color: "text-primary" },
+                          tier3: { type: "text", value: "Full Strategy", color: "text-accent" }
                         },
                         {
-                          icon: "🎨",
                           feature: "Creative Assets",
                           tier0: { type: "text", value: "1-2 Images", color: "text-muted-foreground" },
                           tier1: { type: "text", value: "Basic", color: "text-foreground/70" },
                           tier2: { type: "text", value: "Optimized", color: "text-primary/90" },
-                          tier3: { type: "star", color: "text-accent" }
+                          tier3: { type: "text", value: "Video + UGC", color: "text-accent" }
                         },
                         {
-                          icon: "📊",
                           feature: "Analytics & Reporting",
                           tier0: { type: "text", value: "1 Summary", color: "text-muted-foreground" },
                           tier1: { type: "text", value: "Monthly Report", color: "text-foreground/70" },
                           tier2: { type: "text", value: "Dashboard + Call", color: "text-primary/90" },
-                          tier3: { type: "double-check", color: "text-accent" }
+                          tier3: { type: "text", value: "Weekly Reviews", color: "text-accent" }
                         }
                       ].map((row, rowIndex) => (
                         <TableRow 
@@ -623,47 +614,16 @@ const AdsServices = () => {
                           className="border-b border-border/30 hover:bg-primary/5 transition-all duration-300 group"
                         >
                           <TableCell className="font-semibold text-foreground py-5 pl-8">
-                            <div className="flex items-center gap-3">
-                              <span className="text-2xl">{row.icon}</span>
-                              <span>{row.feature}</span>
-                            </div>
+                            {row.feature}
                           </TableCell>
                           {[row.tier0, row.tier1, row.tier2, row.tier3].map((cell, cellIndex) => (
                             <TableCell 
                               key={cellIndex} 
                               className={`text-center py-5 px-4 ${cellIndex % 2 === 0 ? 'bg-primary/3' : 'bg-background/50'} group-hover:bg-primary/8 transition-colors duration-300`}
                             >
-                              <div className="flex justify-center items-center">
-                                {cell.type === "check" && (
-                                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                    <Check className={`w-5 h-5 ${cell.color} font-bold`} strokeWidth={3} />
-                                  </div>
-                                )}
-                                {cell.type === "double-check" && (
-                                  <div className="relative w-10 h-8 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                    <Check className={`w-5 h-5 ${cell.color} absolute left-0`} strokeWidth={3} />
-                                    <Check className={`w-5 h-5 ${cell.color} absolute right-0`} strokeWidth={3} />
-                                  </div>
-                                )}
-                                {cell.type === "star" && (
-                                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all">
-                                    <Star className={`w-5 h-5 ${cell.color} fill-current`} />
-                                  </div>
-                                )}
-                                {cell.type === "gear" && (
-                                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center group-hover:scale-110 group-hover:rotate-90 transition-all duration-500">
-                                    <Settings className={`w-5 h-5 ${cell.color}`} />
-                                  </div>
-                                )}
-                                {cell.type === "dash" && (
-                                  <span className={`text-xl font-bold ${cell.color}`}>—</span>
-                                )}
-                                {cell.type === "text" && (
-                                  <span className={`text-sm font-medium ${cell.color}`}>
-                                    {cell.value}
-                                  </span>
-                                )}
-                              </div>
+                              <span className={`text-sm font-medium ${cell.color}`}>
+                                {cell.value}
+                              </span>
                             </TableCell>
                           ))}
                         </TableRow>
