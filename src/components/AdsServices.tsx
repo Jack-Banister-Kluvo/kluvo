@@ -191,7 +191,7 @@ const AdsServices = () => {
                 <Button 
                   size="lg" 
                   className="text-lg px-8 py-6 shadow-elegant hover:shadow-xl hover:scale-105 transition-all"
-                  onClick={() => setBookingModalOpen(true)}
+                  onClick={() => window.open('https://calendar.app.google/vaWE3nyxS6UwYqtc6', '_blank')}
                 >
                   Book a Free Consultation
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -312,7 +312,7 @@ const AdsServices = () => {
               size="lg"
               variant="outline"
               className="shadow-soft hover:shadow-elegant transition-all hover:scale-105"
-              onClick={() => setBookingModalOpen(true)}
+              onClick={() => window.open('https://calendar.app.google/vaWE3nyxS6UwYqtc6', '_blank')}
             >
               Book a Free Consultation
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -495,7 +495,7 @@ const AdsServices = () => {
                           <Button 
                             className="w-full rounded-xl hover:scale-105 transition-transform duration-300 shadow-soft"
                             variant={index === 2 || index === 3 ? "default" : "outline"}
-                            onClick={() => setBookingModalOpen(true)}
+                            onClick={() => window.open('https://calendar.app.google/vaWE3nyxS6UwYqtc6', '_blank')}
                           >
                             {ctaTexts[index]}
                             <ArrowRight className="ml-2 w-4 h-4" />
@@ -689,7 +689,7 @@ const AdsServices = () => {
                   <Button 
                     size="lg"
                     className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground shadow-lg hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-105 text-lg px-10 py-6 rounded-2xl"
-                    onClick={() => setBookingModalOpen(true)}
+                    onClick={() => window.open('https://calendar.app.google/vaWE3nyxS6UwYqtc6', '_blank')}
                   >
                     Book a Free Consultation
                     <ArrowRight className="ml-2 w-5 h-5" />
@@ -849,7 +849,7 @@ const AdsServices = () => {
                   <Button 
                     size="lg" 
                     className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground shadow-lg hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-105 text-lg px-8 py-6"
-                    onClick={() => setBookingModalOpen(true)}
+                    onClick={() => window.open('https://calendar.app.google/vaWE3nyxS6UwYqtc6', '_blank')}
                   >
                     Book a Free Consultation
                     <ArrowRight className="ml-2 w-5 h-5" />
@@ -949,7 +949,7 @@ const AdsServices = () => {
                 <Button 
                   size="lg"
                   className="shadow-elegant hover:scale-105 transition-transform"
-                  onClick={() => setBookingModalOpen(true)}
+                  onClick={() => window.open('https://calendar.app.google/vaWE3nyxS6UwYqtc6', '_blank')}
                 >
                   Book a Free Consultation
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -986,7 +986,7 @@ const AdsServices = () => {
                   size="lg"
                   variant="secondary"
                   className="text-lg px-8 py-6 shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
-                  onClick={() => setBookingModalOpen(true)}
+                  onClick={() => window.open('https://calendar.app.google/vaWE3nyxS6UwYqtc6', '_blank')}
                 >
                   Book Your Free Consultation
                   <ArrowRight className="ml-2 w-5 h-5" />
