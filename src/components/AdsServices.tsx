@@ -2,13 +2,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { CheckCircle2, Sparkles, TrendingUp, Rocket, Zap, Check, Settings, ArrowRight, Target, Users, Globe, Quote, Star } from "lucide-react";
+import { CheckCircle2, Sparkles, TrendingUp, Rocket, Zap, Check, Settings, ArrowRight, Target, Users, Globe, Quote, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import BookingModal from "./BookingModal";
 import adsDashboardHero from "@/assets/ads-dashboard-hero.jpg";
+import useEmblaCarousel from 'embla-carousel-react';
 
 const AdsServices = () => {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
 
   const tiers = [
     {
@@ -550,93 +552,163 @@ const AdsServices = () => {
           </div>
         </div>
 
-        {/* Testimonials Section */}
-        <div id="testimonials" className="relative mb-16 -mx-4 px-4 py-20 overflow-hidden">
+        {/* Testimonials Section - Premium Design */}
+        <div id="testimonials" className="relative mb-16 -mx-4 px-4 py-24 overflow-hidden">
           {/* Curved Wave Divider - Top */}
-          <div className="absolute top-0 left-0 right-0 h-16 bg-background" style={{ clipPath: 'ellipse(100% 100% at 50% 0%)' }} />
+          <div className="absolute top-0 left-0 right-0 h-24 overflow-hidden">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+              <path d="M0 120L60 110C120 100 240 80 360 73.3C480 67 600 73 720 76.7C840 80 960 80 1080 73.3C1200 67 1320 53 1380 46.7L1440 40V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V120Z" fill="hsl(var(--background))" />
+            </svg>
+          </div>
           
-          {/* Gradient Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-accent/5 to-background/50 -z-10" />
+          {/* Rich Gradient Background with Geometric Pattern */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-accent/20 to-primary/10 -z-10">
+            {/* Subtle geometric pattern overlay */}
+            <div className="absolute inset-0 opacity-30" style={{
+              backgroundImage: `radial-gradient(circle at 25% 25%, hsl(var(--primary) / 0.1) 1px, transparent 1px),
+                               radial-gradient(circle at 75% 75%, hsl(var(--accent) / 0.1) 1px, transparent 1px)`,
+              backgroundSize: '50px 50px'
+            }} />
+          </div>
           
-          {/* Floating Shapes */}
-          <div className="absolute top-10 right-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 left-20 w-40 h-40 bg-accent/10 rounded-full blur-3xl animate-pulse delay-75" />
+          {/* Beige/Warm Tint Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-amber-50/20 via-transparent to-amber-50/10 -z-10" />
+          
+          {/* Floating Abstract Shapes - Multiple layers for depth */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+            {/* Large blurred circles */}
+            <div className="absolute top-20 left-[10%] w-72 h-72 bg-gradient-to-br from-primary/20 to-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }} />
+            <div className="absolute top-40 right-[15%] w-96 h-96 bg-gradient-to-br from-accent/15 to-primary/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '1s' }} />
+            <div className="absolute bottom-20 left-[20%] w-80 h-80 bg-gradient-to-br from-primary/10 to-accent/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '12s', animationDelay: '2s' }} />
+            <div className="absolute bottom-40 right-[25%] w-64 h-64 bg-gradient-to-br from-accent/20 to-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '9s', animationDelay: '3s' }} />
+            
+            {/* Medium gradient blobs */}
+            <div className="absolute top-1/3 left-[5%] w-48 h-48 bg-gradient-to-tr from-primary/15 to-transparent rounded-full blur-2xl animate-pulse" style={{ animationDuration: '7s' }} />
+            <div className="absolute top-2/3 right-[8%] w-56 h-56 bg-gradient-to-tl from-accent/12 to-transparent rounded-full blur-2xl animate-pulse" style={{ animationDuration: '11s', animationDelay: '1.5s' }} />
+            
+            {/* Small accent shapes */}
+            <div className="absolute top-1/4 right-[30%] w-32 h-32 bg-primary/8 rounded-full blur-xl animate-pulse" style={{ animationDuration: '6s' }} />
+            <div className="absolute bottom-1/3 left-[35%] w-40 h-40 bg-accent/10 rounded-full blur-xl animate-pulse" style={{ animationDuration: '8s', animationDelay: '2s' }} />
+          </div>
 
           <div className="relative z-10 container mx-auto">
             <div className="text-center mb-16 space-y-4 animate-fade-in">
-              <h3 className="text-4xl md:text-5xl font-bold text-primary mb-2">
+              <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent mb-4">
                 What Our Clients Are Saying
               </h3>
-              <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-foreground/90 max-w-3xl mx-auto font-medium">
                 See how Kluvo helps businesses grow through data-driven ad campaigns and dedicated support.
               </p>
             </div>
 
-            {/* Wide Testimonial Boxes */}
-            <div className="grid md:grid-cols-1 gap-8 max-w-5xl mx-auto mb-12">
-              {testimonials.map((testimonial, index) => (
-                <Card 
-                  key={index} 
-                  className="bg-card/90 backdrop-blur-md border-border/50 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-1 animate-fade-in group"
-                  style={{ animationDelay: `${index * 0.15}s` }}
-                >
-                  <CardContent className="p-8 md:p-10">
-                    <div className="flex flex-col md:flex-row gap-6 items-start">
-                      {/* Avatar with Quote Icon */}
-                      <div className="relative flex-shrink-0">
-                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border-2 border-primary/20 group-hover:border-primary/40 transition-colors duration-300">
-                          <span className="text-primary font-bold text-xl">
-                            {testimonial.initials}
-                          </span>
-                        </div>
-                        <div className="absolute -top-2 -left-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                          <Quote className="w-4 h-4 text-primary-foreground" />
-                        </div>
-                      </div>
+            {/* Carousel Container */}
+            <div className="relative max-w-7xl mx-auto mb-12">
+              {/* Navigation Buttons */}
+              <button
+                onClick={() => emblaApi?.scrollPrev()}
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm border-2 border-primary/20 shadow-elegant hover:shadow-xl hover:scale-110 transition-all duration-300 flex items-center justify-center group"
+                aria-label="Previous testimonial"
+              >
+                <ChevronLeft className="w-6 h-6 text-primary group-hover:text-accent transition-colors" />
+              </button>
+              
+              <button
+                onClick={() => emblaApi?.scrollNext()}
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm border-2 border-primary/20 shadow-elegant hover:shadow-xl hover:scale-110 transition-all duration-300 flex items-center justify-center group"
+                aria-label="Next testimonial"
+              >
+                <ChevronRight className="w-6 h-6 text-primary group-hover:text-accent transition-colors" />
+              </button>
 
-                      {/* Content */}
-                      <div className="flex-1">
-                        {/* Star Rating */}
-                        <div className="flex gap-1 mb-4">
-                          {[1, 2, 3, 4, 5].map((star) => (
-                            <Star key={star} className="w-5 h-5 fill-primary text-primary" />
-                          ))}
-                        </div>
+              {/* Carousel */}
+              <div className="overflow-hidden" ref={emblaRef}>
+                <div className="flex gap-6">
+                  {testimonials.map((testimonial, index) => (
+                    <div 
+                      key={index}
+                      className="flex-[0_0_100%] md:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)] min-w-0"
+                    >
+                      <Card 
+                        className="bg-background/95 backdrop-blur-sm border-2 border-primary/10 hover:border-primary/30 shadow-elegant hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-2 group h-full"
+                      >
+                        <CardContent className="p-8 flex flex-col h-full">
+                          {/* Avatar with Gradient Ring */}
+                          <div className="flex items-center gap-4 mb-6">
+                            <div className="relative flex-shrink-0">
+                              {/* Gradient Ring */}
+                              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-accent to-primary p-[3px] group-hover:p-[4px] transition-all duration-300">
+                                <div className="w-full h-full rounded-full bg-background" />
+                              </div>
+                              {/* Avatar */}
+                              <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-primary/30 via-accent/20 to-primary/30 flex items-center justify-center border-[3px] border-background group-hover:scale-110 transition-transform duration-300">
+                                <span className="text-primary font-bold text-xl">
+                                  {testimonial.initials}
+                                </span>
+                              </div>
+                              {/* Quote Icon Badge */}
+                              <div className="absolute -bottom-1 -right-1 w-7 h-7 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <Quote className="w-3.5 h-3.5 text-primary-foreground" />
+                              </div>
+                            </div>
 
-                        {/* Quote */}
-                        <p className="text-foreground text-lg leading-relaxed mb-6 italic">
-                          "{testimonial.quote}"
-                        </p>
+                            {/* Star Rating */}
+                            <div className="flex gap-0.5">
+                              {[1, 2, 3, 4, 5].map((star) => (
+                                <Star key={star} className="w-4 h-4 fill-primary text-primary" />
+                              ))}
+                            </div>
+                          </div>
 
-                        {/* Author Info */}
-                        <div className="border-t border-border/30 pt-4">
-                          <p className="font-semibold text-foreground text-lg">{testimonial.author}</p>
-                          <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                        </div>
-                      </div>
+                          {/* Quote Text */}
+                          <div className="flex-1 mb-6">
+                            <p className="text-foreground/90 text-base leading-relaxed italic">
+                              "{testimonial.quote}"
+                            </p>
+                          </div>
+
+                          {/* Author Info with decorative line */}
+                          <div className="relative pt-6 mt-auto">
+                            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+                            <p className="font-bold text-foreground text-lg mb-1">{testimonial.author}</p>
+                            <p className="text-sm text-muted-foreground font-medium">{testimonial.role}</p>
+                          </div>
+                        </CardContent>
+                      </Card>
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
+                  ))}
+                </div>
+              </div>
             </div>
 
-            {/* CTA Strip */}
-            <div className="text-center bg-card/60 backdrop-blur-sm rounded-2xl border border-border/50 p-8 max-w-3xl mx-auto shadow-lg animate-fade-in" style={{ animationDelay: '0.5s' }}>
-              <p className="text-xl font-semibold mb-4 text-foreground">
-                Want to see results like these?
-              </p>
-              <Button 
-                size="lg" 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl hover:shadow-primary/20 transition-all duration-300"
-                onClick={() => setBookingModalOpen(true)}
-              >
-                Book a Free Consultation
-              </Button>
+            {/* CTA Strip with enhanced styling */}
+            <div className="text-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <div className="max-w-3xl mx-auto bg-gradient-to-br from-background/95 via-background/90 to-background/95 backdrop-blur-md rounded-3xl p-10 shadow-elegant border-2 border-primary/20 relative overflow-hidden group hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                {/* Decorative gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative z-10">
+                  <p className="text-xl md:text-2xl text-foreground font-bold mb-6">
+                    Want to see results like these?
+                  </p>
+                  <Button 
+                    size="lg" 
+                    className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground shadow-lg hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-105 text-lg px-8 py-6"
+                    onClick={() => setBookingModalOpen(true)}
+                  >
+                    Book a Free Consultation
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Curved Wave Divider - Bottom */}
-          <div className="absolute bottom-0 left-0 right-0 h-16 bg-background" style={{ clipPath: 'ellipse(100% 100% at 50% 100%)' }} />
+          <div className="absolute bottom-0 left-0 right-0 h-24 overflow-hidden">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+              <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="hsl(var(--background))" />
+            </svg>
+          </div>
         </div>
 
         {/* Why Choose Kluvo */}
