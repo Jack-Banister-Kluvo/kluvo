@@ -160,8 +160,15 @@ const AdsServices = () => {
   return (
     <section id="ads-services" className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-background via-background to-primary/5 overflow-hidden">
-        <div className="container mx-auto px-4 py-20 lg:py-32">
+      <div className="relative bg-gradient-to-br from-background via-primary/5 to-accent/10 overflow-hidden">
+        {/* Floating abstract shapes */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s' }} />
+          <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-primary/5 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '5s' }} />
+        </div>
+
+        <div className="container mx-auto px-4 py-20 lg:py-32 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Side - Text Focus */}
             <div className="space-y-8 animate-fade-in">
@@ -178,7 +185,7 @@ const AdsServices = () => {
               <div>
                 <Button 
                   size="lg" 
-                  className="text-lg px-8 py-6 shadow-elegant hover:scale-105 transition-transform"
+                  className="text-lg px-8 py-6 shadow-elegant hover:shadow-xl hover:scale-105 transition-all"
                   onClick={() => setBookingModalOpen(true)}
                 >
                   Book a Free Consultation
@@ -189,31 +196,39 @@ const AdsServices = () => {
 
             {/* Right Side - Visual Focus */}
             <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <div className="relative rounded-2xl overflow-hidden shadow-elegant">
+              <div className="relative rounded-2xl overflow-hidden shadow-elegant hover:shadow-xl transition-all duration-500">
                 <img 
                   src={adsDashboardHero} 
                   alt="Marketing dashboard showing growth charts and ad performance metrics"
-                  className="w-full h-auto"
+                  className="w-full h-auto transform hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent pointer-events-none" />
               </div>
               {/* Decorative elements */}
-              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary/5 rounded-full blur-3xl" />
+              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '3s' }} />
+              <div className="absolute -z-10 -top-10 -right-10 w-40 h-40 bg-accent/20 rounded-full blur-2xl" />
+              <div className="absolute -z-10 -bottom-10 -left-10 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
             </div>
           </div>
         </div>
 
         {/* Curved Divider */}
-        <div className="absolute bottom-0 left-0 right-0 h-20 bg-background" style={{ clipPath: 'ellipse(100% 100% at 50% 100%)' }} />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-background" style={{ clipPath: 'ellipse(100% 100% at 50% 100%)' }} />
       </div>
 
       {/* Stats & Impact Section */}
-      <div className="relative bg-gradient-to-br from-background via-muted/20 to-primary/5 py-20 overflow-hidden">
+      <div className="relative bg-gradient-to-br from-muted/30 via-primary/10 to-accent/5 py-20 overflow-hidden">
         {/* Decorative background element */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
             <TrendingUp className="w-full h-full text-primary" strokeWidth={0.5} />
           </div>
+        </div>
+        
+        {/* Floating shapes */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-10 right-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '5s' }} />
+          <div className="absolute bottom-10 left-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '7s' }} />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -262,8 +277,12 @@ const AdsServices = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex justify-center">
-                    <div className="p-4 rounded-2xl bg-background shadow-soft">
-                      <Icon className={`w-10 h-10 ${item.color}`} strokeWidth={1.5} />
+                    <div className="relative">
+                      <div className="p-4 rounded-2xl bg-background shadow-soft group-hover:shadow-elegant transition-all duration-300">
+                        <Icon className={`w-10 h-10 ${item.color}`} strokeWidth={1.5} />
+                      </div>
+                      {/* Animated glow */}
+                      <div className="absolute inset-0 rounded-2xl bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
                     </div>
                   </div>
                   <div>
@@ -294,6 +313,13 @@ const AdsServices = () => {
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </div>
+        </div>
+        
+        {/* Wave Divider */}
+        <div className="absolute bottom-0 left-0 right-0 h-24">
+          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+            <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="hsl(var(--background))" fillOpacity="1"/>
+          </svg>
         </div>
       </div>
 
@@ -463,52 +489,61 @@ const AdsServices = () => {
         </div>
 
         {/* Comparison Table */}
-        <div id="comparison-table" className="mb-16 scroll-mt-20">
-          <div className="text-center mb-8">
-            <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              Quick Comparison
-            </h3>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Compare features across all tiers at a glance
-            </p>
-          </div>
+        <div id="comparison-table" className="relative mb-16 scroll-mt-20 -mx-4 px-4 py-16 bg-gradient-to-br from-background via-muted/10 to-background overflow-hidden">
+          {/* Decorative element */}
+          <div className="absolute top-10 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-10 right-10 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
           
-          <div className="max-w-6xl mx-auto overflow-x-auto">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="w-[200px] font-bold text-foreground">Feature</TableHead>
-                  <TableHead className="text-center font-bold text-foreground">Tier 0</TableHead>
-                  <TableHead className="text-center font-bold text-foreground">Tier 1</TableHead>
-                  <TableHead className="text-center font-bold text-foreground">Tier 2</TableHead>
-                  <TableHead className="text-center font-bold text-foreground">Tier 3</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {comparisonData.map((row, index) => (
-                  <TableRow key={index}>
-                    <TableCell className="font-medium text-foreground">{row.feature}</TableCell>
-                    <TableCell className="text-center text-muted-foreground">{row.tier0}</TableCell>
-                    <TableCell className="text-center text-muted-foreground">{row.tier1}</TableCell>
-                    <TableCell className="text-center text-muted-foreground">{row.tier2}</TableCell>
-                    <TableCell className="text-center text-muted-foreground">{row.tier3}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </div>
+          <div className="relative z-10">
+            <div className="text-center mb-8 animate-fade-in">
+              <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+                Quick Comparison
+              </h3>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Compare features across all tiers at a glance
+              </p>
+            </div>
+            
+            <div className="max-w-6xl mx-auto overflow-x-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-soft border border-border overflow-hidden">
+                <Table>
+                  <TableHeader>
+                    <TableRow className="hover:bg-muted/50 transition-colors">
+                      <TableHead className="w-[200px] font-bold text-foreground">Feature</TableHead>
+                      <TableHead className="text-center font-bold text-foreground">Tier 0</TableHead>
+                      <TableHead className="text-center font-bold text-foreground">Tier 1</TableHead>
+                      <TableHead className="text-center font-bold text-foreground">Tier 2</TableHead>
+                      <TableHead className="text-center font-bold text-foreground">Tier 3</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {comparisonData.map((row, index) => (
+                      <TableRow key={index} className="hover:bg-muted/30 transition-colors">
+                        <TableCell className="font-medium text-foreground">{row.feature}</TableCell>
+                        <TableCell className="text-center text-muted-foreground">{row.tier0}</TableCell>
+                        <TableCell className="text-center text-muted-foreground">{row.tier1}</TableCell>
+                        <TableCell className="text-center text-muted-foreground">{row.tier2}</TableCell>
+                        <TableCell className="text-center text-muted-foreground">{row.tier3}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            </div>
 
-          <div className="mt-8 text-center">
-            <p className="text-muted-foreground mb-4">
-              Need help choosing the right plan? Our team can recommend the best fit for your goals.
-            </p>
-            <Button 
-              variant="outline" 
-              size="lg"
-              onClick={() => setBookingModalOpen(true)}
-            >
-              Book a Free Consultation
-            </Button>
+            <div className="mt-8 text-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <p className="text-muted-foreground mb-4">
+                Need help choosing the right plan? Our team can recommend the best fit for your goals.
+              </p>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="shadow-soft hover:shadow-elegant hover:scale-105 transition-all"
+                onClick={() => setBookingModalOpen(true)}
+              >
+                Book a Free Consultation
+              </Button>
+            </div>
           </div>
         </div>
 
@@ -739,6 +774,56 @@ const AdsServices = () => {
           <div className="absolute bottom-0 left-0 right-0 h-16 bg-background" style={{ clipPath: 'ellipse(100% 100% at 50% 100%)' }} />
         </div>
 
+      </div>
+
+      {/* Final CTA Section */}
+      <div className="relative bg-gradient-to-br from-primary via-primary to-accent py-20 overflow-hidden">
+        {/* Animated background shapes */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-10 left-1/4 w-96 h-96 bg-background/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
+          <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s' }} />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
+            <div className="space-y-4">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight">
+                Ready to Transform Your Advertising?
+              </h2>
+              <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-2xl mx-auto">
+                Let's create campaigns that don't just reach audiences — they convert them into loyal customers.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button 
+                size="lg"
+                variant="secondary"
+                className="text-lg px-8 py-6 shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
+                onClick={() => setBookingModalOpen(true)}
+              >
+                Book Your Free Consultation
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </div>
+
+            {/* Trust indicators */}
+            <div className="pt-8 flex flex-wrap justify-center items-center gap-8 text-primary-foreground/80 text-sm">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5" />
+                <span>No Long-Term Contracts</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5" />
+                <span>Results-Driven Approach</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5" />
+                <span>Expert Team</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <BookingModal 
