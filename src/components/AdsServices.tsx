@@ -493,63 +493,226 @@ const AdsServices = () => {
           <div className="absolute bottom-0 left-0 right-0 h-16 bg-background" style={{ clipPath: 'ellipse(100% 100% at 50% 100%)' }} />
         </div>
 
-        {/* Comparison Table */}
-        <div id="comparison-table" className="relative mb-16 scroll-mt-20 -mx-4 px-4 py-16 bg-gradient-to-br from-background via-muted/10 to-background overflow-hidden">
-          {/* Decorative element */}
-          <div className="absolute top-10 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-10 right-10 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+        {/* Comparison Table - Premium Redesign */}
+        <div id="comparison-table" className="relative mb-16 scroll-mt-20 -mx-4 px-4 py-24 overflow-hidden">
+          {/* Curved Divider - Top */}
+          <div className="absolute top-0 left-0 right-0 h-20 overflow-hidden">
+            <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+              <path d="M0 100L60 93.3C120 86.7 240 73.3 360 66.7C480 60 600 60 720 66.7C840 73.3 960 86.7 1080 93.3C1200 100 1320 100 1380 100H1440V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V100Z" fill="hsl(var(--background))" />
+            </svg>
+          </div>
+
+          {/* Gradient Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/8 to-accent/12 -z-10" />
           
-          <div className="relative z-10">
-            <div className="text-center mb-8 animate-fade-in">
-              <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+          {/* Warm beige overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-amber-50/10 via-transparent to-amber-50/5 -z-10" />
+          
+          {/* Decorative floating shapes */}
+          <div className="absolute top-20 right-[10%] w-64 h-64 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl animate-pulse pointer-events-none" style={{ animationDuration: '8s' }} />
+          <div className="absolute bottom-20 left-[15%] w-72 h-72 bg-gradient-to-tl from-accent/10 to-transparent rounded-full blur-3xl animate-pulse pointer-events-none" style={{ animationDuration: '10s', animationDelay: '2s' }} />
+          
+          <div className="relative z-10 container mx-auto">
+            {/* Enhanced Header */}
+            <div className="text-center mb-16 animate-fade-in">
+              <div className="inline-flex items-center gap-3 mb-4">
+                <div className="w-12 h-1 bg-gradient-to-r from-transparent via-primary to-accent rounded-full" />
+                <Sparkles className="w-8 h-8 text-primary animate-pulse" />
+                <div className="w-12 h-1 bg-gradient-to-r from-accent via-primary to-transparent rounded-full" />
+              </div>
+              
+              <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-4">
                 Quick Comparison
               </h3>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              
+              <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent mx-auto mb-6 rounded-full" />
+              
+              <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto font-medium">
                 Compare features across all tiers at a glance
               </p>
             </div>
             
-            <div className="max-w-6xl mx-auto overflow-x-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <div className="bg-background/80 backdrop-blur-sm rounded-2xl shadow-soft border border-border overflow-hidden">
-                <Table>
-                  <TableHeader>
-                    <TableRow className="hover:bg-muted/50 transition-colors">
-                      <TableHead className="w-[200px] font-bold text-foreground">Feature</TableHead>
-                      <TableHead className="text-center font-bold text-foreground">Tier 0</TableHead>
-                      <TableHead className="text-center font-bold text-foreground">Tier 1</TableHead>
-                      <TableHead className="text-center font-bold text-foreground">Tier 2</TableHead>
-                      <TableHead className="text-center font-bold text-foreground">Tier 3</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {comparisonData.map((row, index) => (
-                      <TableRow key={index} className="hover:bg-muted/30 transition-colors">
-                        <TableCell className="font-medium text-foreground">{row.feature}</TableCell>
-                        <TableCell className="text-center text-muted-foreground">{row.tier0}</TableCell>
-                        <TableCell className="text-center text-muted-foreground">{row.tier1}</TableCell>
-                        <TableCell className="text-center text-muted-foreground">{row.tier2}</TableCell>
-                        <TableCell className="text-center text-muted-foreground">{row.tier3}</TableCell>
+            {/* Table Container with Premium Styling */}
+            <div className="max-w-7xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="bg-background/80 backdrop-blur-md rounded-3xl shadow-elegant border-2 border-primary/20 overflow-hidden hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                {/* Decorative gradient top bar */}
+                <div className="h-2 bg-gradient-to-r from-primary via-accent to-primary" />
+                
+                <div className="overflow-x-auto">
+                  <Table>
+                    <TableHeader>
+                      <TableRow className="border-b-2 border-border/50 hover:bg-transparent">
+                        <TableHead className="w-[220px] py-6 pl-8 font-bold text-base text-foreground">
+                          <div className="flex items-center gap-2">
+                            <Settings className="w-5 h-5 text-primary" />
+                            Feature
+                          </div>
+                        </TableHead>
+                        {[
+                          { name: "Tier 0", gradient: "from-muted/50 to-muted/30", badge: "STARTER" },
+                          { name: "Tier 1", gradient: "from-accent/20 to-accent/10", badge: "LAUNCH" },
+                          { name: "Tier 2", gradient: "from-primary/20 to-primary/10", badge: "GROWTH" },
+                          { name: "Tier 3", gradient: "from-accent/30 to-accent/15", badge: "DOMINATE" }
+                        ].map((tier, index) => (
+                          <TableHead key={index} className="text-center py-6 px-4">
+                            <div className={`inline-flex flex-col items-center gap-2 p-4 rounded-2xl bg-gradient-to-br ${tier.gradient} backdrop-blur-sm border border-primary/20 shadow-soft hover:shadow-elegant hover:scale-105 transition-all duration-300`}>
+                              <div className="text-xs font-bold text-primary/70 tracking-wider">
+                                {tier.badge}
+                              </div>
+                              <div className="text-lg font-bold text-foreground">
+                                {tier.name}
+                              </div>
+                            </div>
+                          </TableHead>
+                        ))}
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                    </TableHeader>
+                    <TableBody>
+                      {[
+                        {
+                          icon: "🧰",
+                          feature: "Platform Setup",
+                          tier0: { type: "check", color: "text-primary" },
+                          tier1: { type: "check", color: "text-primary" },
+                          tier2: { type: "check", color: "text-primary" },
+                          tier3: { type: "check", color: "text-primary" }
+                        },
+                        {
+                          icon: "🎯",
+                          feature: "Campaigns Included",
+                          tier0: { type: "text", value: "1 Basic", color: "text-muted-foreground" },
+                          tier1: { type: "text", value: "1-2 Optimized", color: "text-foreground/80" },
+                          tier2: { type: "text", value: "Multi-Channel", color: "text-primary/90" },
+                          tier3: { type: "text", value: "Cross-Platform", color: "text-accent" }
+                        },
+                        {
+                          icon: "⚙️",
+                          feature: "Automation & Tracking",
+                          tier0: { type: "dash", color: "text-muted-foreground/50" },
+                          tier1: { type: "text", value: "Basic", color: "text-foreground/70" },
+                          tier2: { type: "star", color: "text-primary" },
+                          tier3: { type: "double-check", color: "text-accent" }
+                        },
+                        {
+                          icon: "🔍",
+                          feature: "SEO Support",
+                          tier0: { type: "dash", color: "text-muted-foreground/50" },
+                          tier1: { type: "text", value: "Basic + GMB", color: "text-foreground/70" },
+                          tier2: { type: "gear", color: "text-primary" },
+                          tier3: { type: "double-check", color: "text-accent" }
+                        },
+                        {
+                          icon: "🎨",
+                          feature: "Creative Assets",
+                          tier0: { type: "text", value: "1-2 Images", color: "text-muted-foreground" },
+                          tier1: { type: "text", value: "Basic", color: "text-foreground/70" },
+                          tier2: { type: "text", value: "Optimized", color: "text-primary/90" },
+                          tier3: { type: "star", color: "text-accent" }
+                        },
+                        {
+                          icon: "📊",
+                          feature: "Analytics & Reporting",
+                          tier0: { type: "text", value: "1 Summary", color: "text-muted-foreground" },
+                          tier1: { type: "text", value: "Monthly Report", color: "text-foreground/70" },
+                          tier2: { type: "text", value: "Dashboard + Call", color: "text-primary/90" },
+                          tier3: { type: "double-check", color: "text-accent" }
+                        }
+                      ].map((row, rowIndex) => (
+                        <TableRow 
+                          key={rowIndex} 
+                          className="border-b border-border/30 hover:bg-primary/5 transition-all duration-300 group"
+                        >
+                          <TableCell className="font-semibold text-foreground py-5 pl-8">
+                            <div className="flex items-center gap-3">
+                              <span className="text-2xl">{row.icon}</span>
+                              <span>{row.feature}</span>
+                            </div>
+                          </TableCell>
+                          {[row.tier0, row.tier1, row.tier2, row.tier3].map((cell, cellIndex) => (
+                            <TableCell 
+                              key={cellIndex} 
+                              className={`text-center py-5 px-4 ${cellIndex % 2 === 0 ? 'bg-primary/3' : 'bg-background/50'} group-hover:bg-primary/8 transition-colors duration-300`}
+                            >
+                              <div className="flex justify-center items-center">
+                                {cell.type === "check" && (
+                                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <Check className={`w-5 h-5 ${cell.color} font-bold`} strokeWidth={3} />
+                                  </div>
+                                )}
+                                {cell.type === "double-check" && (
+                                  <div className="relative w-10 h-8 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <Check className={`w-5 h-5 ${cell.color} absolute left-0`} strokeWidth={3} />
+                                    <Check className={`w-5 h-5 ${cell.color} absolute right-0`} strokeWidth={3} />
+                                  </div>
+                                )}
+                                {cell.type === "star" && (
+                                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all">
+                                    <Star className={`w-5 h-5 ${cell.color} fill-current`} />
+                                  </div>
+                                )}
+                                {cell.type === "gear" && (
+                                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center group-hover:scale-110 group-hover:rotate-90 transition-all duration-500">
+                                    <Settings className={`w-5 h-5 ${cell.color}`} />
+                                  </div>
+                                )}
+                                {cell.type === "dash" && (
+                                  <span className={`text-xl font-bold ${cell.color}`}>—</span>
+                                )}
+                                {cell.type === "text" && (
+                                  <span className={`text-sm font-medium ${cell.color}`}>
+                                    {cell.value}
+                                  </span>
+                                )}
+                              </div>
+                            </TableCell>
+                          ))}
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
               </div>
             </div>
 
-            <div className="mt-8 text-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              <p className="text-muted-foreground mb-4">
-                Need help choosing the right plan? Our team can recommend the best fit for your goals.
-              </p>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="shadow-soft hover:shadow-elegant hover:scale-105 transition-all"
-                onClick={() => setBookingModalOpen(true)}
-              >
-                Book a Free Consultation
-              </Button>
+            {/* Enhanced CTA Bar */}
+            <div className="mt-12 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <div className="max-w-4xl mx-auto bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 backdrop-blur-md rounded-3xl p-8 md:p-10 shadow-elegant border-2 border-primary/20 relative overflow-hidden group hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                {/* Decorative elements */}
+                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-accent/20 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-primary/20 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
+                
+                <div className="relative z-10 text-center space-y-6">
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <Target className="w-6 h-6 text-primary" />
+                    <div className="h-[2px] w-12 bg-gradient-to-r from-transparent to-primary rounded-full" />
+                    <Sparkles className="w-5 h-5 text-accent animate-pulse" />
+                    <div className="h-[2px] w-12 bg-gradient-to-r from-primary to-transparent rounded-full" />
+                  </div>
+                  
+                  <p className="text-lg md:text-xl text-foreground/90 font-semibold max-w-2xl mx-auto leading-relaxed">
+                    Need help choosing the right plan? Let our team recommend the best fit for your goals.
+                  </p>
+                  
+                  <Button 
+                    size="lg"
+                    className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground shadow-lg hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-105 text-lg px-10 py-6 rounded-2xl"
+                    onClick={() => setBookingModalOpen(true)}
+                  >
+                    Book a Free Consultation
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
+
+          {/* Curved Divider - Bottom */}
+          <div className="absolute bottom-0 left-0 right-0 h-20 overflow-hidden">
+            <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+              <path d="M0 0L60 6.7C120 13.3 240 26.7 360 33.3C480 40 600 40 720 33.3C840 26.7 960 13.3 1080 6.7C1200 0 1320 0 1380 0H1440V100H1380C1320 100 1200 100 1080 100C960 100 840 100 720 100C600 100 480 100 360 100C240 100 120 100 60 100H0V0Z" fill="hsl(var(--background))" />
+            </svg>
+          </div>
+        </div>
         </div>
 
         {/* Testimonials Section - Premium Design */}
@@ -806,64 +969,62 @@ const AdsServices = () => {
           <div className="absolute bottom-0 left-0 right-0 h-16 bg-background" style={{ clipPath: 'ellipse(100% 100% at 50% 100%)' }} />
         </div>
 
-      </div>
+        {/* Final CTA Section */}
+        <div className="relative bg-gradient-to-br from-primary via-primary to-accent py-20 overflow-hidden">
+          {/* Animated background shapes */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-10 left-1/4 w-96 h-96 bg-background/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
+            <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s' }} />
+          </div>
 
-      {/* Final CTA Section */}
-      <div className="relative bg-gradient-to-br from-primary via-primary to-accent py-20 overflow-hidden">
-        {/* Animated background shapes */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-10 left-1/4 w-96 h-96 bg-background/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
-          <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s' }} />
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
-            <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight">
-                Ready to Transform Your Advertising?
-              </h2>
-              <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-2xl mx-auto">
-                Let's create campaigns that don't just reach audiences — they convert them into loyal customers.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button 
-                size="lg"
-                variant="secondary"
-                className="text-lg px-8 py-6 shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
-                onClick={() => setBookingModalOpen(true)}
-              >
-                Book Your Free Consultation
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </div>
-
-            {/* Trust indicators */}
-            <div className="pt-8 flex flex-wrap justify-center items-center gap-8 text-primary-foreground/80 text-sm">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5" />
-                <span>No Long-Term Contracts</span>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
+              <div className="space-y-4">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight">
+                  Ready to Transform Your Advertising?
+                </h2>
+                <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-2xl mx-auto">
+                  Let's create campaigns that don't just reach audiences — they convert them into loyal customers.
+                </p>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5" />
-                <span>Results-Driven Approach</span>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Button 
+                  size="lg"
+                  variant="secondary"
+                  className="text-lg px-8 py-6 shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
+                  onClick={() => setBookingModalOpen(true)}
+                >
+                  Book Your Free Consultation
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5" />
-                <span>Expert Team</span>
+
+              {/* Trust indicators */}
+              <div className="pt-8 flex flex-wrap justify-center items-center gap-8 text-primary-foreground/80 text-sm">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5" />
+                  <span>No Long-Term Contracts</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5" />
+                  <span>Results-Driven Approach</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5" />
+                  <span>Expert Team</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <BookingModal 
-        open={bookingModalOpen} 
-        onOpenChange={setBookingModalOpen} 
-      />
-    </section>
-  );
-};
+        <BookingModal 
+          open={bookingModalOpen} 
+          onOpenChange={setBookingModalOpen} 
+        />
+      </section>
+    );
+  };
 
 export default AdsServices;
