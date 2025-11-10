@@ -188,8 +188,8 @@ const AdsServices = () => {
                 </p>
               </div>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              {/* CTA Button */}
+              <div>
                 <Button 
                   size="lg" 
                   className="text-lg px-8 py-6 shadow-elegant hover:scale-105 transition-transform"
@@ -197,14 +197,6 @@ const AdsServices = () => {
                 >
                   Book a Free Consultation
                   <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="text-lg px-8 py-6 hover:scale-105 transition-transform"
-                  onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  See Our Work
                 </Button>
               </div>
             </div>
