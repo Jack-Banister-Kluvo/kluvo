@@ -517,7 +517,7 @@ const AdsServices = () => {
             <div className="text-center mb-16 animate-fade-in">
               <div className="inline-flex items-center gap-3 mb-4">
                 <div className="w-12 h-1 bg-gradient-to-r from-transparent via-primary to-accent rounded-full" />
-                <Sparkles className="w-8 h-8 text-primary animate-pulse" />
+                <span className="text-lg font-semibold text-primary">Not Sure Where to Start?</span>
                 <div className="w-12 h-1 bg-gradient-to-r from-accent via-primary to-transparent rounded-full" />
               </div>
               
