@@ -331,67 +331,60 @@ const AdsServices = () => {
       {/* Main Content Container */}
       <div className="container mx-auto px-4 py-20">
 
-        {/* Service Tiers Section - Premium Redesign */}
-        <div className="relative mb-16 bg-gradient-to-br from-background via-accent/5 to-accent/15 py-24 -mx-4 px-4 overflow-hidden border-b-2 border-primary/20">
+        {/* Service Tiers Section - Premium Minimal */}
+        <div className="relative mb-16 bg-[#FAFAFA] py-24 -mx-4 px-4 overflow-hidden border-t border-border/30 shadow-[0_-4px_12px_rgba(0,0,0,0.02)]">
           
-          {/* Floating Abstract Shapes */}
+          {/* Subtle corner accent dots */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {/* Large circle - top left */}
-            <div className="absolute -top-32 -left-32 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }} />
+            {/* Top left dots */}
+            <div className="absolute top-8 left-8 w-2 h-2 rounded-full bg-accent/10" />
+            <div className="absolute top-8 left-16 w-1.5 h-1.5 rounded-full bg-accent/8" />
+            <div className="absolute top-16 left-8 w-1.5 h-1.5 rounded-full bg-accent/8" />
             
-            {/* Medium circle - bottom right */}
-            <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }} />
+            {/* Top right dots */}
+            <div className="absolute top-8 right-8 w-2 h-2 rounded-full bg-primary/8" />
+            <div className="absolute top-8 right-16 w-1.5 h-1.5 rounded-full bg-primary/6" />
+            <div className="absolute top-16 right-8 w-1.5 h-1.5 rounded-full bg-primary/6" />
             
-            {/* Small circle - top right */}
-            <div className="absolute top-20 right-32 w-40 h-40 bg-accent/15 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '4s', animationDelay: '2s' }} />
-            
-            {/* Wavy lines */}
-            <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
-            <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
-            
-            {/* Curved accent shapes */}
-            <div className="absolute top-1/3 right-10 w-64 h-64 border-2 border-accent/10 rounded-full transform rotate-12" />
-            <div className="absolute bottom-1/4 left-10 w-48 h-48 border-2 border-primary/10 rounded-full transform -rotate-12" />
+            {/* Geometric shapes - minimal */}
+            <div className="absolute top-20 right-32 w-24 h-24 border border-accent/5 rounded-full" />
+            <div className="absolute bottom-32 left-24 w-32 h-32 border border-primary/5 rounded-lg transform rotate-12" />
           </div>
 
-          {/* Spotlight effect behind heading */}
-          <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[600px] h-64 bg-gradient-radial from-accent/20 via-accent/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+          {/* Soft vignette behind heading */}
+          <div className="absolute top-16 left-1/2 -translate-x-1/2 w-[800px] h-48 bg-gradient-radial from-accent/8 via-accent/3 to-transparent rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10">
-            <div className="text-center mb-16 space-y-6">
-              {/* Energetic tagline */}
-              <div className="flex items-center justify-center gap-3 mb-4 animate-fade-in">
-                <div className="h-px w-12 bg-gradient-to-r from-transparent to-accent rounded-full" />
-                <p className="text-sm md:text-base font-semibold text-accent uppercase tracking-wider">
-                  Find your fit — from your first ad to full-scale domination
-                </p>
-                <div className="h-px w-12 bg-gradient-to-l from-transparent to-accent rounded-full" />
-              </div>
-
-              {/* Main heading with icon and gradient underline */}
-              <div className="flex items-center justify-center gap-4 mb-6 animate-[fade-in_0.6s_ease-out_0.2s_both]">
-                <TrendingUp className="w-8 h-8 md:w-10 md:h-10 text-primary animate-pulse" />
-                <h3 className="text-4xl md:text-6xl font-bold text-primary relative inline-block">
-                  Choose the Right Plan for{" "}
-                  <span className="relative inline-block">
-                    Your Business
-                    {/* Gradient underline highlight */}
-                    <div className="absolute -bottom-2 left-0 w-full h-2 bg-gradient-to-r from-accent/40 via-accent/60 to-accent/40 rounded-full" />
-                  </span>
+            <div className="text-center mb-20 space-y-8 max-w-4xl mx-auto px-4">
+              
+              {/* Main heading with refined accent */}
+              <div className="space-y-4 animate-[fade-in_0.8s_ease-out]">
+                <h3 className="text-4xl md:text-6xl font-bold text-primary leading-tight">
+                  Choose the Right Plan for Your Business
                 </h3>
+                
+                {/* Thin accent line with arrow */}
+                <div className="flex items-center justify-center gap-2">
+                  <div className="h-[1px] w-16 bg-gradient-to-r from-transparent to-accent/40" />
+                  <ArrowRight className="w-4 h-4 text-accent" />
+                  <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-accent/40" />
+                </div>
               </div>
 
-              {/* Horizontal accent line with pulse animation */}
-              <div className="flex items-center justify-center gap-2 mb-4">
-                <div className="h-0.5 w-24 bg-gradient-to-r from-transparent to-primary/30 rounded-full" />
-                <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                <div className="h-0.5 w-24 bg-gradient-to-l from-transparent to-primary/30 rounded-full" />
-              </div>
-
-              {/* Subtext */}
-              <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto animate-[fade-in_0.6s_ease-out_0.4s_both] leading-relaxed">
+              {/* Subheading with better spacing */}
+              <p className="text-xl md:text-2xl text-[#666] max-w-3xl mx-auto leading-relaxed font-light animate-[fade-in_0.8s_ease-out_0.2s_both]">
                 Flexible plans that grow with your business — from your first campaign to full-scale domination.
               </p>
+
+              {/* Accent tagline */}
+              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto animate-[fade-in_0.8s_ease-out_0.4s_both]">
+                Plans built for growth — from your first campaign to full-scale success.
+              </p>
+            </div>
+
+            {/* Thin divider before tier cards */}
+            <div className="flex items-center justify-center mb-16 animate-[fade-in_0.8s_ease-out_0.6s_both]">
+              <div className="h-[1px] w-full max-w-md bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-[1700px] mx-auto mb-12">
