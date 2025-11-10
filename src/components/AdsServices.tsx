@@ -93,20 +93,6 @@ const AdsServices = () => {
     },
   ];
 
-  const whyChooseReasons = [
-    {
-      title: "Expertise in Multi-Channel Ads",
-      description: "We manage ads across all major platforms—Google, Meta, TikTok, YouTube, and more.",
-    },
-    {
-      title: "Proven Results",
-      description: "Our data-driven approach ensures your ads are performing at their best.",
-    },
-    {
-      title: "Customized Strategies",
-      description: "We tailor each campaign to your business objectives, ensuring maximum ROI.",
-    },
-  ];
 
   const comparisonData = [
     {
@@ -659,22 +645,98 @@ const AdsServices = () => {
         </div>
 
         {/* Why Choose Kluvo */}
-        <div className="mb-16">
-          <h3 className="text-3xl md:text-4xl font-bold text-primary text-center mb-12">
-            Why Choose Kluvo for Your Ads?
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {whyChooseReasons.map((reason, index) => (
-              <Card key={index} className="bg-card hover:shadow-soft transition-shadow">
-                <CardHeader>
-                  <CardTitle className="text-xl text-primary">{reason.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{reason.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+        <div className="relative mb-16 -mx-4 px-4 py-20 overflow-hidden">
+          {/* Gradient Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5 -z-10" />
+
+          <div className="relative z-10">
+            <div className="text-center mb-16 space-y-4 animate-fade-in">
+              <h3 className="text-4xl md:text-5xl font-bold text-primary mb-2">
+                Why Choose Kluvo for Your Ads?
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
+              {[
+                {
+                  icon: Rocket,
+                  title: "Expertise Across Every Platform",
+                  description: "From Google to TikTok, we run high-performing, cross-channel ad campaigns that drive consistent results."
+                },
+                {
+                  icon: TrendingUp,
+                  title: "Proven Performance, Every Time",
+                  description: "Data and strategy fuel every decision — so your ads don't just run, they win."
+                },
+                {
+                  icon: Target,
+                  title: "Tailored Strategies That Convert",
+                  description: "We build campaigns uniquely crafted to your goals — ensuring every click counts."
+                }
+              ].map((reason, index) => {
+                const Icon = reason.icon;
+                return (
+                  <div
+                    key={index}
+                    className="animate-fade-in"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <Card className="bg-background border border-border shadow-soft hover:shadow-elegant hover:-translate-y-2 transition-all duration-500 group h-full">
+                      <CardContent className="p-8 text-center">
+                        {/* Gradient Icon */}
+                        <div className="flex justify-center mb-6">
+                          <div className="relative">
+                            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                              <Icon className="w-10 h-10 text-primary" strokeWidth={1.5} />
+                            </div>
+                            {/* Glow effect on hover */}
+                            <div className="absolute inset-0 rounded-2xl bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+                          </div>
+                        </div>
+
+                        <CardTitle className="text-xl md:text-2xl text-primary mb-4 font-bold">
+                          {reason.title}
+                        </CardTitle>
+                        <p className="text-foreground/80 leading-relaxed">
+                          {reason.description}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Tagline */}
+            <div className="text-center mb-12 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto font-medium">
+                At Kluvo, we combine creativity, data, and automation to make advertising effortless and effective.
+              </p>
+            </div>
+
+            {/* CTA Bar */}
+            <div 
+              className="text-center animate-fade-in"
+              style={{ animationDelay: '0.5s' }}
+            >
+              <div className="max-w-2xl mx-auto bg-primary/5 backdrop-blur-sm rounded-2xl p-8 shadow-soft border border-primary/20">
+                <p className="text-lg md:text-xl text-foreground/90 font-medium mb-4">
+                  Let's make your next campaign your most profitable yet.
+                </p>
+                <Button 
+                  size="lg"
+                  className="shadow-elegant hover:scale-105 transition-transform"
+                  onClick={() => setBookingModalOpen(true)}
+                >
+                  Book a Free Consultation
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </div>
+            </div>
           </div>
+
+          {/* Wave Divider - Bottom */}
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-background" style={{ clipPath: 'ellipse(100% 100% at 50% 100%)' }} />
         </div>
 
         {/* CTA Section */}
