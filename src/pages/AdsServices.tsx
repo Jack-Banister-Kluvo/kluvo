@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import AdsServices from "@/components/AdsServices";
-import Footer from "@/components/Footer";
 
 const AdsServicesPage = () => {
   return (
@@ -9,7 +8,6 @@ const AdsServicesPage = () => {
       <main className="pt-16">
         <AdsServices />
       </main>
-      <Footer />
     </div>
   );
 };
