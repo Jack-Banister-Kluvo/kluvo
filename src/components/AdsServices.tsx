@@ -527,36 +527,135 @@ const AdsServices = () => {
         </div>
 
         {/* Testimonials Section */}
-        <div id="testimonials" className="mb-16">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              Trusted by Businesses Who've Grown with Us
-            </h3>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We've helped brands across e-commerce, tech, and services achieve measurable growth.
-            </p>
+        <div id="testimonials" className="relative mb-16 -mx-4 px-4 py-20 overflow-hidden">
+          {/* Curved Wave Divider - Top */}
+          <div className="absolute top-0 left-0 right-0 h-16 bg-background" style={{ clipPath: 'ellipse(100% 100% at 50% 0%)' }} />
+          
+          {/* Gradient Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/5 to-primary/10 -z-10" />
+
+          <div className="relative z-10">
+            <div className="text-center mb-16 space-y-4 animate-fade-in">
+              <h3 className="text-4xl md:text-5xl font-bold text-primary mb-2">
+                What Our Clients Say
+              </h3>
+              <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto">
+                Real results. Real stories. Here's how businesses grew with Kluvo.
+              </p>
+            </div>
+
+            {/* Asymmetric Grid Layout */}
+            <div className="max-w-6xl mx-auto space-y-6">
+              {/* Featured Testimonial - Larger */}
+              <div 
+                className="animate-fade-in mx-auto max-w-4xl"
+                style={{ animationDelay: '0.1s' }}
+              >
+                <Card className="bg-background border-2 border-primary/20 shadow-elegant hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group">
+                  <CardContent className="p-8 md:p-10">
+                    <div className="flex items-start gap-6">
+                      {/* Avatar Circle */}
+                      <div className="flex-shrink-0">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-xl shadow-soft">
+                          SM
+                        </div>
+                      </div>
+                      
+                      <div className="flex-1">
+                        {/* Quote Icon */}
+                        <div className="mb-4">
+                          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                            <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
+                          </div>
+                        </div>
+                        
+                        <p className="text-xl md:text-2xl text-foreground mb-6 italic leading-relaxed">
+                          "{testimonials[0].quote}"
+                        </p>
+                        
+                        <div className="flex items-center gap-3 pt-4 border-t border-border">
+                          <div>
+                            <p className="font-bold text-lg text-primary">{testimonials[0].author}</p>
+                            <p className="text-sm text-muted-foreground">{testimonials[0].company}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Two Smaller Testimonials - Side by Side */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {testimonials.slice(1).map((testimonial, index) => {
+                  const initials = testimonial.author.split(' ').map(n => n[0]).join('');
+                  const bgColor = index === 0 ? 'bg-background' : 'bg-primary/5';
+                  
+                  return (
+                    <div
+                      key={index}
+                      className="animate-fade-in"
+                      style={{ animationDelay: `${(index + 2) * 0.1}s` }}
+                    >
+                      <Card className={`${bgColor} border border-border shadow-soft hover:shadow-elegant hover:-translate-y-1 transition-all duration-500 h-full group`}>
+                        <CardContent className="p-6">
+                          <div className="flex items-start gap-4 mb-4">
+                            {/* Avatar Circle */}
+                            <div className="flex-shrink-0">
+                              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-primary-foreground font-semibold text-sm shadow-soft">
+                                {initials}
+                              </div>
+                            </div>
+                            
+                            {/* Quote Icon */}
+                            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/15 to-accent/15 flex items-center justify-center flex-shrink-0">
+                              <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                              </svg>
+                            </div>
+                          </div>
+                          
+                          <p className="text-base md:text-lg text-foreground mb-4 italic leading-relaxed">
+                            "{testimonial.quote}"
+                          </p>
+                          
+                          <div className="pt-4 border-t border-border">
+                            <p className="font-bold text-primary">{testimonial.author}</p>
+                            <p className="text-sm text-muted-foreground">{testimonial.company}</p>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* CTA Bar */}
+            <div 
+              className="mt-16 text-center space-y-6 animate-fade-in"
+              style={{ animationDelay: '0.5s' }}
+            >
+              <div className="max-w-2xl mx-auto bg-background/80 backdrop-blur-sm rounded-2xl p-8 shadow-soft border border-border">
+                <p className="text-lg md:text-xl text-foreground/90 font-medium mb-4">
+                  Ready to see results like these?
+                </p>
+                <Button 
+                  size="lg"
+                  className="shadow-elegant hover:scale-105 transition-transform"
+                  onClick={() => setBookingModalOpen(true)}
+                >
+                  Book a Free Consultation
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-card hover:shadow-soft transition-shadow">
-                <CardContent className="pt-6">
-                  <div className="mb-4">
-                    <svg className="w-8 h-8 text-primary opacity-50" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                    </svg>
-                  </div>
-                  <p className="text-foreground mb-4 italic">
-                    "{testimonial.quote}"
-                  </p>
-                  <div className="border-t border-border pt-4">
-                    <p className="font-semibold text-primary">{testimonial.author}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.company}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          {/* Curved Wave Divider - Bottom */}
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-background" style={{ clipPath: 'ellipse(100% 100% at 50% 100%)' }} />
         </div>
 
         {/* Why Choose Kluvo */}
