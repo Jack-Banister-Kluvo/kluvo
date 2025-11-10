@@ -331,22 +331,65 @@ const AdsServices = () => {
       {/* Main Content Container */}
       <div className="container mx-auto px-4 py-20">
 
-        {/* Service Tiers Section */}
-        <div className="relative mb-16 bg-gradient-to-br from-background via-background to-primary/5 py-16 -mx-4 px-4 rounded-3xl overflow-hidden">
-          {/* Decorative background element */}
-          <div className="absolute inset-0 opacity-5 pointer-events-none">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
-              <Rocket className="w-full h-full text-primary" strokeWidth={0.3} />
-            </div>
+        {/* Service Tiers Section - Premium Redesign */}
+        <div className="relative mb-16 bg-gradient-to-br from-background via-accent/5 to-accent/15 py-24 -mx-4 px-4 overflow-hidden border-b-2 border-primary/20">
+          
+          {/* Floating Abstract Shapes */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {/* Large circle - top left */}
+            <div className="absolute -top-32 -left-32 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }} />
+            
+            {/* Medium circle - bottom right */}
+            <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }} />
+            
+            {/* Small circle - top right */}
+            <div className="absolute top-20 right-32 w-40 h-40 bg-accent/15 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '4s', animationDelay: '2s' }} />
+            
+            {/* Wavy lines */}
+            <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+            <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+            
+            {/* Curved accent shapes */}
+            <div className="absolute top-1/3 right-10 w-64 h-64 border-2 border-accent/10 rounded-full transform rotate-12" />
+            <div className="absolute bottom-1/4 left-10 w-48 h-48 border-2 border-primary/10 rounded-full transform -rotate-12" />
           </div>
 
+          {/* Spotlight effect behind heading */}
+          <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[600px] h-64 bg-gradient-radial from-accent/20 via-accent/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+
           <div className="relative z-10">
-            <div className="text-center mb-12 space-y-4 animate-fade-in">
-              <h3 className="text-4xl md:text-5xl font-bold text-primary mb-2 relative inline-block">
-                Choose the Right Plan for Your Business
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-primary/30 rounded-full mt-2" />
-              </h3>
-              <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto mt-6">
+            <div className="text-center mb-16 space-y-6">
+              {/* Energetic tagline */}
+              <div className="flex items-center justify-center gap-3 mb-4 animate-fade-in">
+                <div className="h-px w-12 bg-gradient-to-r from-transparent to-accent rounded-full" />
+                <p className="text-sm md:text-base font-semibold text-accent uppercase tracking-wider">
+                  Find your fit — from your first ad to full-scale domination
+                </p>
+                <div className="h-px w-12 bg-gradient-to-l from-transparent to-accent rounded-full" />
+              </div>
+
+              {/* Main heading with icon and gradient underline */}
+              <div className="flex items-center justify-center gap-4 mb-6 animate-[fade-in_0.6s_ease-out_0.2s_both]">
+                <TrendingUp className="w-8 h-8 md:w-10 md:h-10 text-primary animate-pulse" />
+                <h3 className="text-4xl md:text-6xl font-bold text-primary relative inline-block">
+                  Choose the Right Plan for{" "}
+                  <span className="relative inline-block">
+                    Your Business
+                    {/* Gradient underline highlight */}
+                    <div className="absolute -bottom-2 left-0 w-full h-2 bg-gradient-to-r from-accent/40 via-accent/60 to-accent/40 rounded-full" />
+                  </span>
+                </h3>
+              </div>
+
+              {/* Horizontal accent line with pulse animation */}
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <div className="h-0.5 w-24 bg-gradient-to-r from-transparent to-primary/30 rounded-full" />
+                <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+                <div className="h-0.5 w-24 bg-gradient-to-l from-transparent to-primary/30 rounded-full" />
+              </div>
+
+              {/* Subtext */}
+              <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto animate-[fade-in_0.6s_ease-out_0.4s_both] leading-relaxed">
                 Flexible plans that grow with your business — from your first campaign to full-scale domination.
               </p>
             </div>

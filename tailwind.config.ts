@@ -73,7 +73,8 @@ export default {
 				'gradient-subtle': 'var(--gradient-subtle)',
 				'gradient-hero': 'var(--gradient-hero)',
 				'pattern-dots': 'var(--pattern-dots)',
-				'pattern-grid': 'var(--pattern-grid)'
+				'pattern-grid': 'var(--pattern-grid)',
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))'
 			},
 			backgroundSize: {
 				'dots': '20px 20px',
@@ -103,11 +104,22 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(20px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.6s ease-out'
 			}
 		}
 	},
