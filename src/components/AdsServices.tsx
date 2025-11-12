@@ -179,7 +179,7 @@ const AdsServices = () => {
             <div className="space-y-8 animate-fade-in">
               <div className="space-y-4">
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-tight">
-                  Boost Your Online Presence with Kluvo's Ad Services
+                  Boost Your Online Presence with Kluvo's Paid Media
                 </h1>
                 <p className="text-xl md:text-2xl text-foreground/80 max-w-2xl">
                   Smart, data-driven advertising strategies that help your business grow, convert, and dominate online.
