@@ -2,15 +2,12 @@ import { FileDown, ArrowLeft, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
+import MobilePdfViewer from "@/components/MobilePdfViewer";
 
 const HiddenCostToHiring = () => {
   const calendarLink = "https://calendar.app.google/vaWE3nyxS6UwYqtc6";
   const pdfPath = "/downloads/Hidden_Cost_To_Hiring.pdf";
   const isMobile = useIsMobile();
-  
-  // Full URL for Google Docs viewer
-  const fullPdfUrl = `${window.location.origin}${pdfPath}`;
-  const googleDocsUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(fullPdfUrl)}&embedded=true`;
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -45,14 +42,20 @@ const HiddenCostToHiring = () => {
         </div>
       </header>
 
-      {/* PDF Embed */}
+      {/* PDF Content */}
       <main className="flex-1">
-        <iframe
-          src={isMobile ? googleDocsUrl : pdfPath}
-          className="w-full h-[calc(100vh-65px)]"
-          title="The Hidden Cost to Hiring - Kluvo Research"
-          allow="autoplay"
-        />
+        {isMobile ? (
+          <MobilePdfViewer 
+            pdfPath={pdfPath} 
+            title="The Hidden Cost to Hiring - Kluvo Research" 
+          />
+        ) : (
+          <iframe
+            src={pdfPath}
+            className="w-full h-[calc(100vh-65px)]"
+            title="The Hidden Cost to Hiring - Kluvo Research"
+          />
+        )}
       </main>
     </div>
   );

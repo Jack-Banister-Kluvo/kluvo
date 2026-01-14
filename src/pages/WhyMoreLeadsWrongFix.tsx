@@ -2,15 +2,12 @@ import { FileDown, ArrowLeft, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
+import MobilePdfViewer from "@/components/MobilePdfViewer";
 
 const WhyMoreLeadsWrongFix = () => {
   const calendarLink = "https://calendar.app.google/vaWE3nyxS6UwYqtc6";
   const pdfPath = "/downloads/Why_More_Leads_Wrong_Fix.pdf";
   const isMobile = useIsMobile();
-  
-  // Full URL for Google Docs viewer
-  const fullPdfUrl = `${window.location.origin}${pdfPath}`;
-  const googleDocsUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(fullPdfUrl)}&embedded=true`;
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -45,14 +42,20 @@ const WhyMoreLeadsWrongFix = () => {
         </div>
       </header>
 
-      {/* PDF Embed */}
+      {/* PDF Content */}
       <main className="flex-1">
-        <iframe
-          src={isMobile ? googleDocsUrl : pdfPath}
-          className="w-full h-[calc(100vh-65px)]"
-          title="Why More Leads Is the Wrong Fix for a Broken Sales Process - Kluvo Research"
-          allow="autoplay"
-        />
+        {isMobile ? (
+          <MobilePdfViewer 
+            pdfPath={pdfPath} 
+            title="Why More Leads Is the Wrong Fix - Kluvo Research" 
+          />
+        ) : (
+          <iframe
+            src={pdfPath}
+            className="w-full h-[calc(100vh-65px)]"
+            title="Why More Leads Is the Wrong Fix for a Broken Sales Process - Kluvo Research"
+          />
+        )}
       </main>
     </div>
   );
