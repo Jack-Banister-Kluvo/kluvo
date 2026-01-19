@@ -8,6 +8,7 @@ import AdsServicesPage from "./pages/AdsServices";
 import OutboundParadox from "./pages/OutboundParadox";
 import HiddenCostToHiring from "./pages/HiddenCostToHiring";
 import WhyMoreLeadsWrongFix from "./pages/WhyMoreLeadsWrongFix";
+import SpeedToConversation from "./pages/SpeedToConversation";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/outbound-paradox" element={<OutboundParadox />} />
           <Route path="/hidden-cost-to-hiring" element={<HiddenCostToHiring />} />
           <Route path="/why-more-leads-wrong-fix" element={<WhyMoreLeadsWrongFix />} />
+          <Route path="/speed-to-conversation" element={<SpeedToConversation />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
