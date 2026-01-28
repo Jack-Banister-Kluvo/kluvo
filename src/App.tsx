@@ -10,6 +10,7 @@ import HiddenCostToHiring from "./pages/HiddenCostToHiring";
 import WhyMoreLeadsWrongFix from "./pages/WhyMoreLeadsWrongFix";
 import SpeedToConversation from "./pages/SpeedToConversation";
 import BusinessDevelopmentManager from "./pages/BusinessDevelopmentManager";
+import StrategicFusionAIEmpathy from "./pages/StrategicFusionAIEmpathy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/why-more-leads-wrong-fix" element={<WhyMoreLeadsWrongFix />} />
           <Route path="/speed-to-conversation" element={<SpeedToConversation />} />
           <Route path="/business-development-manager" element={<BusinessDevelopmentManager />} />
+          <Route path="/strategic-fusion-ai-empathy" element={<StrategicFusionAIEmpathy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
