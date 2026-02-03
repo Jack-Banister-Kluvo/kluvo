@@ -12,6 +12,7 @@ import SpeedToConversation from "./pages/SpeedToConversation";
 import BusinessDevelopmentManager from "./pages/BusinessDevelopmentManager";
 import StrategicFusionAIEmpathy from "./pages/StrategicFusionAIEmpathy";
 import WhatModernBuyersNotice from "./pages/WhatModernBuyersNotice";
+import SalesTeamsFollowUpProblem from "./pages/SalesTeamsFollowUpProblem";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/business-development-manager" element={<BusinessDevelopmentManager />} />
           <Route path="/strategic-fusion-ai-empathy" element={<StrategicFusionAIEmpathy />} />
           <Route path="/what-modern-buyers-notice" element={<WhatModernBuyersNotice />} />
+          <Route path="/sales-teams-follow-up-problem" element={<SalesTeamsFollowUpProblem />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
