@@ -16,6 +16,7 @@ import SalesTeamsFollowUpProblem from "./pages/SalesTeamsFollowUpProblem";
 import InvisibleTaxSalesPipelines from "./pages/InvisibleTaxSalesPipelines";
 import ExecutionImperative from "./pages/ExecutionImperative";
 import ArchitectureOfStillness from "./pages/ArchitectureOfStillness";
+import HighPerformingOutboundTeams from "./pages/HighPerformingOutboundTeams";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/invisible-tax-sales-pipelines" element={<InvisibleTaxSalesPipelines />} />
           <Route path="/execution-imperative" element={<ExecutionImperative />} />
           <Route path="/architecture-of-stillness" element={<ArchitectureOfStillness />} />
+          <Route path="/high-performing-outbound-teams" element={<HighPerformingOutboundTeams />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
